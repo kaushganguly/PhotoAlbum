@@ -1,0 +1,52 @@
+{
+  "$schema": "https://raw.githubusercontent.com/github/copilot-modernization/main/schema/tasks-schema.json",
+  "description": "Tasks template for modernization plan. Generate this file alongside plan.md to track individual migration tasks.",
+  "tasks": [
+    {
+      "type": "transform",
+      "id": "001-transform-localfiles-to-blob",
+      "description": "Migrate photo storage from local file system (wwwroot/uploads) to Azure Blob Storage with passwordless Managed Identity authentication.",
+      "reason": "Local disk storage does not work for scaled-out or containerized Azure hosting. Azure Blob Storage provides durable, scalable, and cloud-native storage for uploaded photos.",
+      "requirements": "Replace all local file system operations in PhotoService (UploadPhotoAsync and DeletePhotoAsync) with Azure Blob Storage SDK operations. Register BlobServiceClient in Program.cs using DefaultAzureCredential and the blob endpoint URI from configuration (no storage account keys or connection strings). Preserve the existing IPhotoService contract, EF Core metadata persistence, and SixLabors.ImageSharp dimension extraction. Remove the wwwroot/uploads directory creation from Program.cs. Store the blob URL in Photo.FilePath and the blob name in Photo.StoredFileName.",
+      "skills": [
+        {
+          "name": "photoalbum-localfiles-to-blob",
+          "location": "project"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
+    },
+    {
+      "type": "security",
+      "id": "002-security-cve-remediation",
+      "description": "Scan all project dependencies for known CVEs and remediate any identified vulnerabilities.",
+      "reason": "Ensuring the application is free of known security vulnerabilities before deployment is a standard security practice and organizational requirement.",
+      "requirements": "Upgrade vulnerable dependencies to the minimum patched version. If a CVE fix requires a major version upgrade, document the affected dependency, the current version, the upgraded major version, and the breaking change risk. Verify that the project builds and all tests pass after remediation.",
+      "dependencies": [
+        "001-transform-localfiles-to-blob"
+      ],
+      "skills": [
+        {
+          "name": "validate-cves-and-fix",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
+    }
+  ],
+  "metadata": {
+    "planName": "plan-skill-demo-blob",
+    "projectName": "PhotoAlbum",
+    "language": "dotnet",
+    "createdAt": "2026-06-08T12:36:15Z",
+    "version": "1.0"
+  }
+}
