@@ -1,0 +1,53 @@
+{
+  "$schema": "https://raw.githubusercontent.com/azure/modernize-agent/main/tasks-schema.json",
+  "description": "Tasks template for modernization plan. Generate this file alongside plan.md to track individual migration tasks.",
+  "tasks": [
+    {
+      "type": "transform",
+      "id": "001-transform-localfiles-to-azure-blob",
+      "description": "Migrate photo file storage from the local disk (wwwroot/uploads) to Azure Blob Storage using Managed Identity authentication",
+      "reason": "Local disk storage does not work for scaled-out or containerized hosting on Azure. Azure Blob Storage provides durable, globally-accessible storage that integrates natively with Azure Managed Identity.",
+      "requirements": "Replace all local file system operations in PhotoService (Directory.CreateDirectory, FileStream writes, File.Exists, File.Delete) with Azure Blob Storage operations. Register a BlobServiceClient in Program.cs using DefaultAzureCredential and the blob endpoint URI from configuration (Storage:BlobEndpoint). Add Storage:ContainerName configuration (default: photos). Store the blob URL in Photo.FilePath and the blob name in Photo.StoredFileName. Preserve the existing IPhotoService contract, EF Core Photo model, ImageSharp dimension extraction, and the rollback behavior (delete blob if DB save fails). Remove wwwroot/uploads directory creation from Program.cs. Use no storage account keys, SAS tokens, or connection strings — Managed Identity only.",
+      "dependencies": [],
+      "skills": [
+        {
+          "name": "photoalbum-localfiles-to-blob",
+          "location": "project"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
+    },
+    {
+      "type": "security",
+      "id": "002-security-cve-remediation",
+      "description": "Scan all project dependencies for known CVEs and remediate any identified vulnerabilities",
+      "reason": "Ensuring the modernized application is free of known security vulnerabilities is a mandatory step before deployment.",
+      "requirements": "Upgrade vulnerable dependencies to the minimum patched version. If a CVE fix requires a major version upgrade, document the affected dependency, the current version, the upgraded major version, and the breaking change risk. Verify that the project builds and all tests pass after remediation.",
+      "dependencies": [
+        "001-transform-localfiles-to-azure-blob"
+      ],
+      "skills": [
+        {
+          "name": "validate-cves-and-fix",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
+    }
+  ],
+  "metadata": {
+    "planName": "photoalbum-localfiles-to-blob",
+    "projectName": "PhotoAlbum",
+    "language": "dotnet",
+    "createdAt": "2026-06-09T13:18:13.000Z",
+    "version": "1.0"
+  }
+}
