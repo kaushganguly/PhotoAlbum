@@ -4,7 +4,7 @@ This document provides a comprehensive overview of the projects and their depend
 
 ## Table of Contents
 
-- [Executive Summary](#executive-Summary)
+- [Executive Summary](#executive-summary)
   - [Highlevel Metrics](#highlevel-metrics)
   - [Projects Compatibility](#projects-compatibility)
   - [Package Compatibility](#package-compatibility)
