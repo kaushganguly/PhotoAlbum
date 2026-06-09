@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Tasks template for modernization plan. Generate this file alongside plan.md to track individual migration tasks.",
+  "tasks": [
+    {
+      "type": "transform",
+      "id": "001-transform-localfiles-to-azure-blob",
+      "description": "Migrate local file storage to Azure Blob Storage so that uploaded photos are stored in and served from a Blob container instead of the server's local disk.",
+      "reason": "The PhotoAlbum application currently saves uploaded images to wwwroot/uploads/ using FileStream and deletes them with File.Delete(). This ties storage to the compute host, prevents horizontal scaling, and loses files on container restarts. Migrating to Azure Blob Storage provides durable, scalable, geo-redundant storage decoupled from the application runtime.",
+      "requirements": "Replace all local file I/O in PhotoService (UploadPhotoAsync and DeletePhotoAsync) with Azure Blob Storage SDK calls. Store blobs in a dedicated container (e.g., 'photos'). Update the FilePath stored in the database to contain the blob URL instead of the local relative path /uploads/{filename}. Use Managed Identity (DefaultAzureCredential) for passwordless authentication. Preserve all existing validation logic (MIME type check, file size limit, image dimension extraction). Ensure the project builds and all existing unit tests pass after migration.",
+      "skills": [
+        {
+          "name": "migration-azure-storage-blob",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
+    },
+    {
+      "type": "security",
+      "id": "002-security-cve-remediation",
+      "description": "Scan all project dependencies for known CVEs and remediate identified vulnerabilities to ensure the application is secure.",
+      "reason": "Before the modernised application is used in production it is important to verify that no known security vulnerabilities exist in its NuGet dependencies. This is a standard hygiene step included in every modernisation plan.",
+      "requirements": "Upgrade vulnerable dependencies to the minimum patched version. If a CVE fix requires a major version upgrade, document the affected dependency, the current version, the target version, and the breaking-change risk. Verify that the project builds and all unit tests pass after remediation.",
+      "dependencies": [
+        "001-transform-localfiles-to-azure-blob"
+      ],
+      "skills": [
+        {
+          "name": "validate-cves-and-fix",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
+    }
+  ],
+  "metadata": {
+    "planName": "photoalbum-localfiles-to-blob",
+    "projectName": "PhotoAlbum",
+    "language": "dotnet",
+    "createdAt": "2026-06-09T12:54:48Z",
+    "version": "1.0"
+  }
+}
