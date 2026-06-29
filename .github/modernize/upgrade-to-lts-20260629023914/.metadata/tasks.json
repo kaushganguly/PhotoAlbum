@@ -18,7 +18,7 @@
       "taskSummary": "Upgraded both projects to net10.0, updated EF Core and test packages to .NET 10-compatible versions, and validated with successful build and test runs (7/7 passing).",
       "successCriteriaStatus": {
         "passBuild": "true",
-        "generateNewUnitTests": "true",
+        "generateNewUnitTests": "false",
         "passUnitTests": "true"
       }
     }
