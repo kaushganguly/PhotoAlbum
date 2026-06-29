@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Tasks template for modernization plan. Generate this file alongside plan.md to track individual migration tasks.",
+  "tasks": [
+    {
+      "type": "transform",
+      "id": "001-transform-localfiles-to-blob",
+      "description": "Migrate photo storage from local disk (wwwroot/uploads) to Azure Blob Storage using Managed Identity authentication",
+      "reason": "The current PhotoService writes uploaded images to the local file system and deletes them with File.Delete. This approach does not scale horizontally and is incompatible with containerised or Azure-hosted deployments. Azure Blob Storage provides durable, scalable object storage with passwordless access via Managed Identity.",
+      "requirements": "Replace all local file system operations in PhotoService (Directory.CreateDirectory, FileStream writes, File.Exists, File.Delete) with Azure Blob Storage SDK operations. Use DefaultAzureCredential (Managed Identity) for authentication — no storage account keys, SAS tokens, or connection strings are permitted. Register a singleton BlobServiceClient in Program.cs using the blob endpoint URI from configuration (Storage:BlobEndpoint, Storage:ContainerName). Preserve the existing IPhotoService interface signatures (GetAllPhotosAsync, GetPhotoByIdAsync, UploadPhotoAsync, DeletePhotoAsync), the SixLabors.ImageSharp dimension extraction logic, the EF Core Photo model and PhotoAlbumContext, and the delete-blob-on-DB-failure rollback behaviour. Remove the wwwroot/uploads directory creation from Program.cs. Store the blob name in Photo.StoredFileName and the full blob URL in Photo.FilePath.",
+      "skills": [
+        {
+          "name": "photoalbum-localfiles-to-blob",
+          "location": "project"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
+    },
+    {
+      "type": "security",
+      "id": "002-security-cve-remediation",
+      "description": "Scan all project dependencies for known CVEs and remediate identified vulnerabilities",
+      "reason": "Ensuring the application is free of known security vulnerabilities is a mandatory step before any deployment to Azure.",
+      "requirements": "Upgrade vulnerable dependencies to the minimum patched version. If a CVE fix requires a major version upgrade, document the affected dependency, the current version, the upgraded major version, and the breaking change risk. Verify that the project builds and all tests pass after remediation.",
+      "dependencies": [
+        "001-transform-localfiles-to-blob"
+      ],
+      "skills": [
+        {
+          "name": "validate-cves-and-fix",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
+    }
+  ],
+  "metadata": {
+    "planName": "photoalbum-localfiles-to-blob-plan2",
+    "projectName": "PhotoAlbum",
+    "language": "dotnet",
+    "createdAt": "2026-06-29T07:14:48.508Z",
+    "version": "1.0"
+  }
+}
