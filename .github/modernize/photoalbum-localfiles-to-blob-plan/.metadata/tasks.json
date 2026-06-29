@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Tasks template for modernization plan. Generate this file alongside plan.md to track individual migration tasks.",
+  "tasks": [
+    {
+      "type": "transform",
+      "id": "001-transform-local-file-storage-to-azure-blob",
+      "description": "Migrate PhotoAlbum photo storage from local file system to Azure Blob Storage while preserving current upload and photo retrieval behavior.",
+      "reason": "The current local file storage does not align with Azure-native storage requirements for modernization.",
+      "requirements": "Replace local file persistence for uploaded photos with Azure Blob Storage and keep user-visible behavior equivalent for upload, read, and delete operations. Use managed identity based authentication for Blob access and avoid storage keys or connection strings.",
+      "skills": [
+        {
+          "name": "photoalbum-localfiles-to-blob",
+          "location": "project"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
+    },
+    {
+      "type": "security",
+      "id": "002-security-cve-remediation",
+      "description": "Scan project dependencies for known CVEs and remediate identified vulnerabilities before finalizing modernization changes.",
+      "reason": "Security validation is required for every modernization plan to reduce known dependency risk.",
+      "requirements": "Upgrade vulnerable dependencies to patched versions and document any major-version upgrade risk when required. Verify the project builds and existing tests pass after remediation.",
+      "dependencies": [
+        "001-transform-local-file-storage-to-azure-blob"
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
+    }
+  ],
+  "metadata": {
+    "planName": "photoalbum-localfiles-to-blob-plan",
+    "projectName": "PhotoAlbum",
+    "language": "dotnet",
+    "createdAt": "2026-06-29T03:11:19Z",
+    "version": "1.0"
+  }
+}
