@@ -1,0 +1,27 @@
+{
+  "$schema": "tasks-schema.json",
+  "description": ".NET version upgrade plan from .NET 9.0 to .NET 10.0",
+  "tasks": [
+    {
+      "type": "upgrade",
+      "id": "001-upgrade-dotnet-to-net10",
+      "description": "Upgrade PhotoAlbum solution (PhotoAlbum and PhotoAlbum.Tests) from .NET 9.0 to .NET 10.0",
+      "reason": ".NET 9.0 is a Standard Term Support (STS) release that reached end of support in May 2026 and is now EOL. Upgrading to .NET 10.0 LTS restores long-term support, provides access to the latest runtime improvements, and ensures compatibility with current Azure SDK and NuGet packages.",
+      "requirements": "Upgrade both projects in the PhotoAlbum solution from net9.0 to net10.0. This includes updating the TargetFramework in PhotoAlbum/PhotoAlbum.csproj and PhotoAlbum.Tests/PhotoAlbum.Tests.csproj, upgrading all NuGet package references (Microsoft.EntityFrameworkCore.*, Microsoft.AspNetCore.Mvc.Testing, SixLabors.ImageSharp, and test SDK packages) to versions compatible with .NET 10, and resolving any API breaking changes or deprecations introduced between .NET 9 and .NET 10.",
+      "skills": [],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      },
+      "status": "pending"
+    }
+  ],
+  "metadata": {
+    "planName": "upgrade-to-lts",
+    "projectName": "PhotoAlbum",
+    "language": "dotnet",
+    "createdAt": "2026-07-16T04:49:44.000Z",
+    "version": "1.0"
+  }
+}
