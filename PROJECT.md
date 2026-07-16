@@ -16,7 +16,7 @@ A simple photo storage and gallery application built with ASP.NET Core Razor Pag
 
 ## Prerequisites
 
-- [.NET 9.0 SDK](https://dotnet.microsoft.com/download/dotnet/9.0) or later
+- [.NET 10.0 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) or later
 - SQL Server LocalDB (installed with Visual Studio or SQL Server Express)
 - A modern web browser
 
@@ -118,8 +118,8 @@ dotnet test --filter Category=Integration
 
 ### Technology Stack
 
-- **Framework**: ASP.NET Core 9.0 (Razor Pages)
-- **Database**: SQL Server LocalDB with Entity Framework Core 9.0
+- **Framework**: ASP.NET Core 10.0 (Razor Pages)
+- **Database**: SQL Server LocalDB with Entity Framework Core 10.0
 - **Testing**: xUnit with WebApplicationFactory
 - **Image Processing**: SixLabors.ImageSharp 3.1.11
 - **Frontend**: Bootstrap 5.3.0, Vanilla JavaScript

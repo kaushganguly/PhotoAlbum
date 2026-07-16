@@ -4,11 +4,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-PhotoAlbum is an ASP.NET Core 9.0 Razor Pages application for photo gallery management. It's designed as a demo for GitHub Copilot app modernization, showcasing migration from local file storage to Azure Blob Storage.
+PhotoAlbum is an ASP.NET Core 10.0 Razor Pages application for photo gallery management. It's designed as a demo for GitHub Copilot app modernization, showcasing migration from local file storage to Azure Blob Storage.
 
 **Tech Stack:**
-- ASP.NET Core 9.0 (Razor Pages)
-- Entity Framework Core 9.0 with SQL Server LocalDB
+- ASP.NET Core 10.0 (Razor Pages)
+- Entity Framework Core 10.0 with SQL Server LocalDB
 - SixLabors.ImageSharp for image processing
 - xUnit for testing
 
