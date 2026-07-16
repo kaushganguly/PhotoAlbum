@@ -19,7 +19,7 @@
       "taskSummary": "Upgraded PhotoAlbum and PhotoAlbum.Tests to net10.0, updated .NET 9-bound EF Core and ASP.NET Core testing packages to 10.0.10, and verified build/tests pass.",
       "successCriteriaStatus": {
         "passBuild": "true",
-        "generateNewUnitTests": "true",
+        "generateNewUnitTests": "false",
         "passUnitTests": "true"
       }
     }
