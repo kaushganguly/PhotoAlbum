@@ -1191,7 +1191,7 @@
     },
     "Connection.0001": {
       "id": "Connection.0001",
-      "description": "Connection string detected. It may not be available when your app is migrated to Azure.\n\nReview and ensure it works from Azure. If you are connecting to a database, you might need to migrate the database to Azure. There are multiple ways to do it:\n    1. Migrate to Azure SQL Database for additional benefits (see the link below).\n    2. Consider Azure SQL Managed Instance if you need features that are not available in Azure SQL Database and you don\u2019t want to use a VM.\n    3. Migrate your database servers directly to SQL Server on Azure VMs.\n\nTo assess database migration effort, you can use Azure Migrate tool, see the link below.",
+      "description": "Connection string detected. It may not be available when your app is migrated to Azure.\n\nReview and ensure it works from Azure. If you are connecting to a database, you might need to migrate the database to Azure. There are multiple ways to do it:\n    1. Migrate to Azure SQL Database for additional benefits (see the link below).\n    2. Consider Azure SQL Managed Instance if you need features that are not available in Azure SQL Database and you don’t want to use a VM.\n    3. Migrate your database servers directly to SQL Server on Azure VMs.\n\nTo assess database migration effort, you can use Azure Migrate tool, see the link below.",
       "title": "Connection string is detected",
       "severity": "potential",
       "effort": 3,
@@ -1247,7 +1247,7 @@
     },
     "Database.0002": {
       "id": "Database.0002",
-      "description": "SQL database connection detected.\n\nEnsure the database is available/reachable on Azure.\n\nIf it is not, there are multiple ways you can move your data to Azure:\n    1. Migrate to Azure SQL Database.\n    2. Consider Azure SQL Managed Instance if you need features that are not available in Azure SQL Database and you don\u2019t want to use a VM.\n    3. Migrate your database servers directly to SQL Server on Azure VMs.\n\nTo assess database migration effort, you can use Azure Migrate tool, see the link below.",
+      "description": "SQL database connection detected.\n\nEnsure the database is available/reachable on Azure.\n\nIf it is not, there are multiple ways you can move your data to Azure:\n    1. Migrate to Azure SQL Database.\n    2. Consider Azure SQL Managed Instance if you need features that are not available in Azure SQL Database and you don’t want to use a VM.\n    3. Migrate your database servers directly to SQL Server on Azure VMs.\n\nTo assess database migration effort, you can use Azure Migrate tool, see the link below.",
       "title": "SQL database connection detected",
       "severity": "potential",
       "effort": 3,
@@ -1269,7 +1269,7 @@
     },
     "Identity.0002": {
       "id": "Identity.0002",
-      "description": "Your app is using windows authentication which is not supported on Azure App Service, Azure Container Apps and Azure Kubernetes Service.\n\nAzure App Service provides built-in authentication and authorization capabilities, so you can sign in users and access data by writing minimal or no code in your web app.\n\nFollow the link below for more information.\u0022",
+      "description": "Your app is using windows authentication which is not supported on Azure App Service, Azure Container Apps and Azure Kubernetes Service.\n\nAzure App Service provides built-in authentication and authorization capabilities, so you can sign in users and access data by writing minimal or no code in your web app.\n\nFollow the link below for more information.\"",
       "title": "Windows authentication detected",
       "severity": "mandatory",
       "effort": 3,
@@ -1302,5 +1302,82 @@
       ],
       "labels": []
     }
-  }
+  },
+  "security": [
+    {
+      "id": "CVE-2026-106110",
+      "title": "ImageSharp: TIFF CCITT T4 encoder can write past its compressed output buffer",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-106110](https://github.com/advisories/GHSA-j9gm-c75j-xc9q): ImageSharp: TIFF CCITT T4 encoder can write past its compressed output buffer\n\nSeverity: HIGH\n\nAffected dependencies:\n  - SixLabors.ImageSharp:3.1.11 (PhotoAlbum/PhotoAlbum.csproj:16); vulnerable range: >= 2.0.0, <= 4.1.1; first patched: 4.1.2\n\nRecommended fix:\n  - Upgrade affected dependencies to the first patched version listed above, or a later supported version.",
+      "evidence": {
+        "files": [
+          "PhotoAlbum/PhotoAlbum.csproj:16"
+        ],
+        "explanation": "[CVE-2026-106110](https://github.com/advisories/GHSA-j9gm-c75j-xc9q): ImageSharp: TIFF CCITT T4 encoder can write past its compressed output buffer\n\nSeverity: HIGH\n\nAffected dependencies:\n  - SixLabors.ImageSharp:3.1.11 (PhotoAlbum/PhotoAlbum.csproj:16); vulnerable range: >= 2.0.0, <= 4.1.1; first patched: 4.1.2\n\nRecommended fix:\n  - Upgrade affected dependencies to the first patched version listed above, or a later supported version."
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-106113",
+      "title": "ImageSharp: HistogramEqualization uses an unvalidated luminance as an unchecked histogram index",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-106113](https://github.com/advisories/GHSA-j3p4-wp97-rph4): ImageSharp: HistogramEqualization uses an unvalidated luminance as an unchecked histogram index\n\nSeverity: HIGH\n\nAffected dependencies:\n  - SixLabors.ImageSharp:3.1.11 (PhotoAlbum/PhotoAlbum.csproj:16); vulnerable range: >= 2.0.0, <= 4.1.1; first patched: 4.1.2\n\nRecommended fix:\n  - Upgrade affected dependencies to the first patched version listed above, or a later supported version.",
+      "evidence": {
+        "files": [
+          "PhotoAlbum/PhotoAlbum.csproj:16"
+        ],
+        "explanation": "[CVE-2026-106113](https://github.com/advisories/GHSA-j3p4-wp97-rph4): ImageSharp: HistogramEqualization uses an unvalidated luminance as an unchecked histogram index\n\nSeverity: HIGH\n\nAffected dependencies:\n  - SixLabors.ImageSharp:3.1.11 (PhotoAlbum/PhotoAlbum.csproj:16); vulnerable range: >= 2.0.0, <= 4.1.1; first patched: 4.1.2\n\nRecommended fix:\n  - Upgrade affected dependencies to the first patched version listed above, or a later supported version."
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-106115",
+      "title": "ImageSharp: TIFF CCITT T6 encoder writes beyond an undersized output buffer",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-106115](https://github.com/advisories/GHSA-jjfr-hcj7-qf5w): ImageSharp: TIFF CCITT T6 encoder writes beyond an undersized output buffer\n\nSeverity: HIGH\n\nAffected dependencies:\n  - SixLabors.ImageSharp:3.1.11 (PhotoAlbum/PhotoAlbum.csproj:16); vulnerable range: >= 2.1.0, <= 4.1.1; first patched: 4.1.2\n\nRecommended fix:\n  - Upgrade affected dependencies to the first patched version listed above, or a later supported version.",
+      "evidence": {
+        "files": [
+          "PhotoAlbum/PhotoAlbum.csproj:16"
+        ],
+        "explanation": "[CVE-2026-106115](https://github.com/advisories/GHSA-jjfr-hcj7-qf5w): ImageSharp: TIFF CCITT T6 encoder writes beyond an undersized output buffer\n\nSeverity: HIGH\n\nAffected dependencies:\n  - SixLabors.ImageSharp:3.1.11 (PhotoAlbum/PhotoAlbum.csproj:16); vulnerable range: >= 2.1.0, <= 4.1.1; first patched: 4.1.2\n\nRecommended fix:\n  - Upgrade affected dependencies to the first patched version listed above, or a later supported version."
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CWE-434",
+      "title": "Unrestricted Upload of File with Dangerous Type",
+      "category": "File & Path Security",
+      "severity": "mandatory",
+      "description": "The product allows the upload or transfer of dangerous file types that are automatically processed within its environment.",
+      "evidence": {
+        "files": [
+          "PhotoAlbum/Services/PhotoService.cs:81",
+          "PhotoAlbum/Services/PhotoService.cs:109",
+          "PhotoAlbum/Services/PhotoService.cs:125",
+          "PhotoAlbum/Services/PhotoService.cs:140"
+        ],
+        "explanation": "PhotoService.UploadPhotoAsync trusts the client-controlled ContentType for its allowlist check (lines 81-89) and derives the stored extension from the client-supplied FileName (lines 109-112). ImageSharp decode errors are caught and ignored (lines 125-138), after which the original uploaded bytes are still saved (lines 140-145). Thus a non-image payload with a spoofed allowed ContentType and a dangerous extension can be persisted and served from the uploads area without successful image validation."
+      },
+      "storyPoint": 8
+    },
+    {
+      "id": "CWE-79",
+      "title": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+      "category": "Injection Attacks",
+      "severity": "optional",
+      "description": "The product does not neutralize or incorrectly neutralizes user-controllable input before it is placed in output that is used as a web page that is served to other users.",
+      "evidence": {
+        "files": [
+          "PhotoAlbum/wwwroot/js/upload.js:193",
+          "PhotoAlbum/wwwroot/js/upload.js:196-197",
+          "PhotoAlbum/wwwroot/js/upload.js:223-226"
+        ],
+        "explanation": "The upload flow returns the client-controlled original filename in JSON (PhotoAlbum/Pages/Index.cshtml.cs:76-83). upload.js inserts originalFileName into an HTML template at lines 193 and 196-197, then inserts the template with insertAdjacentHTML at line 166; upload error messages similarly interpolate file names into innerHTML at lines 128-129 and 223-226. A crafted filename can therefore inject markup/script into the gallery or upload feedback."
+      },
+      "storyPoint": 8
+    }
+  ]
 }

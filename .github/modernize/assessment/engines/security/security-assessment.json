@@ -1,0 +1,90 @@
+{
+  "GeneratedAt": "2026-10-21T13:11:12.277395Z",
+  "ProjectPath": ".",
+  "Summary": {
+    "TotalFindings": 5,
+    "CveCount": 3,
+    "CweCount": 2,
+    "BySeverity": {
+      "mandatory": 4,
+      "optional": 1,
+      "potential": 0
+    },
+    "ByCategory": {
+      "CVE": 3,
+      "File & Path Security": 1,
+      "Injection Attacks": 1
+    },
+    "TotalRulesAssessed": 59,
+    "RulesPassed": 57
+  },
+  "CveFindings": [
+    {
+      "Id": "CVE-2026-106110",
+      "Name": "ImageSharp: TIFF CCITT T4 encoder can write past its compressed output buffer",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2026-106110](https://github.com/advisories/GHSA-j9gm-c75j-xc9q): ImageSharp: TIFF CCITT T4 encoder can write past its compressed output buffer\n\nSeverity: HIGH\n\nAffected dependencies:\n  - SixLabors.ImageSharp:3.1.11 (PhotoAlbum/PhotoAlbum.csproj:16); vulnerable range: >= 2.0.0, <= 4.1.1; first patched: 4.1.2\n\nRecommended fix:\n  - Upgrade affected dependencies to the first patched version listed above, or a later supported version.",
+      "Files": [
+        "PhotoAlbum/PhotoAlbum.csproj:16"
+      ],
+      "Explanation": "[CVE-2026-106110](https://github.com/advisories/GHSA-j9gm-c75j-xc9q): ImageSharp: TIFF CCITT T4 encoder can write past its compressed output buffer\n\nSeverity: HIGH\n\nAffected dependencies:\n  - SixLabors.ImageSharp:3.1.11 (PhotoAlbum/PhotoAlbum.csproj:16); vulnerable range: >= 2.0.0, <= 4.1.1; first patched: 4.1.2\n\nRecommended fix:\n  - Upgrade affected dependencies to the first patched version listed above, or a later supported version."
+    },
+    {
+      "Id": "CVE-2026-106113",
+      "Name": "ImageSharp: HistogramEqualization uses an unvalidated luminance as an unchecked histogram index",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2026-106113](https://github.com/advisories/GHSA-j3p4-wp97-rph4): ImageSharp: HistogramEqualization uses an unvalidated luminance as an unchecked histogram index\n\nSeverity: HIGH\n\nAffected dependencies:\n  - SixLabors.ImageSharp:3.1.11 (PhotoAlbum/PhotoAlbum.csproj:16); vulnerable range: >= 2.0.0, <= 4.1.1; first patched: 4.1.2\n\nRecommended fix:\n  - Upgrade affected dependencies to the first patched version listed above, or a later supported version.",
+      "Files": [
+        "PhotoAlbum/PhotoAlbum.csproj:16"
+      ],
+      "Explanation": "[CVE-2026-106113](https://github.com/advisories/GHSA-j3p4-wp97-rph4): ImageSharp: HistogramEqualization uses an unvalidated luminance as an unchecked histogram index\n\nSeverity: HIGH\n\nAffected dependencies:\n  - SixLabors.ImageSharp:3.1.11 (PhotoAlbum/PhotoAlbum.csproj:16); vulnerable range: >= 2.0.0, <= 4.1.1; first patched: 4.1.2\n\nRecommended fix:\n  - Upgrade affected dependencies to the first patched version listed above, or a later supported version."
+    },
+    {
+      "Id": "CVE-2026-106115",
+      "Name": "ImageSharp: TIFF CCITT T6 encoder writes beyond an undersized output buffer",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2026-106115](https://github.com/advisories/GHSA-jjfr-hcj7-qf5w): ImageSharp: TIFF CCITT T6 encoder writes beyond an undersized output buffer\n\nSeverity: HIGH\n\nAffected dependencies:\n  - SixLabors.ImageSharp:3.1.11 (PhotoAlbum/PhotoAlbum.csproj:16); vulnerable range: >= 2.1.0, <= 4.1.1; first patched: 4.1.2\n\nRecommended fix:\n  - Upgrade affected dependencies to the first patched version listed above, or a later supported version.",
+      "Files": [
+        "PhotoAlbum/PhotoAlbum.csproj:16"
+      ],
+      "Explanation": "[CVE-2026-106115](https://github.com/advisories/GHSA-jjfr-hcj7-qf5w): ImageSharp: TIFF CCITT T6 encoder writes beyond an undersized output buffer\n\nSeverity: HIGH\n\nAffected dependencies:\n  - SixLabors.ImageSharp:3.1.11 (PhotoAlbum/PhotoAlbum.csproj:16); vulnerable range: >= 2.1.0, <= 4.1.1; first patched: 4.1.2\n\nRecommended fix:\n  - Upgrade affected dependencies to the first patched version listed above, or a later supported version."
+    }
+  ],
+  "CweFindings": [
+    {
+      "Id": "CWE-434",
+      "Name": "Unrestricted Upload of File with Dangerous Type",
+      "Category": "File & Path Security",
+      "Severity": "mandatory",
+      "StoryPoint": 8,
+      "Description": "The product allows the upload or transfer of dangerous file types that are automatically processed within its environment.",
+      "Files": [
+        "PhotoAlbum/Services/PhotoService.cs:81",
+        "PhotoAlbum/Services/PhotoService.cs:109",
+        "PhotoAlbum/Services/PhotoService.cs:125",
+        "PhotoAlbum/Services/PhotoService.cs:140"
+      ],
+      "Explanation": "PhotoService.UploadPhotoAsync trusts the client-controlled ContentType for its allowlist check (lines 81-89) and derives the stored extension from the client-supplied FileName (lines 109-112). ImageSharp decode errors are caught and ignored (lines 125-138), after which the original uploaded bytes are still saved (lines 140-145). Thus a non-image payload with a spoofed allowed ContentType and a dangerous extension can be persisted and served from the uploads area without successful image validation."
+    },
+    {
+      "Id": "CWE-79",
+      "Name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+      "Category": "Injection Attacks",
+      "Severity": "optional",
+      "StoryPoint": 8,
+      "Description": "The product does not neutralize or incorrectly neutralizes user-controllable input before it is placed in output that is used as a web page that is served to other users.",
+      "Files": [
+        "PhotoAlbum/wwwroot/js/upload.js:193",
+        "PhotoAlbum/wwwroot/js/upload.js:196-197",
+        "PhotoAlbum/wwwroot/js/upload.js:223-226"
+      ],
+      "Explanation": "The upload flow returns the client-controlled original filename in JSON (PhotoAlbum/Pages/Index.cshtml.cs:76-83). upload.js inserts originalFileName into an HTML template at lines 193 and 196-197, then inserts the template with insertAdjacentHTML at line 166; upload error messages similarly interpolate file names into innerHTML at lines 128-129 and 223-226. A crafted filename can therefore inject markup/script into the gallery or upload feedback."
+    }
+  ]
+}
