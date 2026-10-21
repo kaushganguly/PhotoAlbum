@@ -1,0 +1,102 @@
+{
+  "GeneratedAt": "2026-10-21T10:32:11.847217Z",
+  "ProjectPath": ".",
+  "Summary": {
+    "TotalFindings": 6,
+    "CveCount": 3,
+    "CweCount": 3,
+    "BySeverity": {
+      "mandatory": 4,
+      "optional": 0,
+      "potential": 2
+    },
+    "ByCategory": {
+      "CVE": 3,
+      "Code Quality": 1,
+      "Concurrency & Synchronization": 1,
+      "File & Path Security": 1
+    },
+    "TotalRulesAssessed": 59,
+    "RulesPassed": 56
+  },
+  "CveFindings": [
+    {
+      "Id": "CVE-2026-106115",
+      "Name": "ImageSharp: TIFF CCITT T6 encoder writes beyond an undersized output buffer",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2026-106115](https://github.com/advisories/GHSA-jjfr-hcj7-qf5w): ImageSharp: TIFF CCITT T6 encoder writes beyond an undersized output buffer\n\nSeverity: HIGH\n\nAffected dependencies:\n  - SixLabors.ImageSharp:3.1.11 (direct dependency declared in PhotoAlbum/PhotoAlbum.csproj:16; also transitive in PhotoAlbum.Tests); vulnerable range >= 2.1.0, <= 4.1.1; first patched version 4.1.2",
+      "Files": [
+        "PhotoAlbum/PhotoAlbum.csproj:16"
+      ],
+      "Explanation": "[CVE-2026-106115](https://github.com/advisories/GHSA-jjfr-hcj7-qf5w): ImageSharp: TIFF CCITT T6 encoder writes beyond an undersized output buffer\n\nSeverity: HIGH\n\nAffected dependencies:\n  - SixLabors.ImageSharp:3.1.11 (direct dependency declared in PhotoAlbum/PhotoAlbum.csproj:16; also transitive in PhotoAlbum.Tests); vulnerable range >= 2.1.0, <= 4.1.1; first patched version 4.1.2"
+    },
+    {
+      "Id": "CVE-2026-106110",
+      "Name": "ImageSharp: TIFF CCITT T4 encoder can write past its compressed output buffer",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2026-106110](https://github.com/advisories/GHSA-j9gm-c75j-xc9q): ImageSharp: TIFF CCITT T4 encoder can write past its compressed output buffer\n\nSeverity: HIGH\n\nAffected dependencies:\n  - SixLabors.ImageSharp:3.1.11 (direct dependency declared in PhotoAlbum/PhotoAlbum.csproj:16; also transitive in PhotoAlbum.Tests); vulnerable range >= 2.0.0, <= 4.1.1; first patched version 4.1.2",
+      "Files": [
+        "PhotoAlbum/PhotoAlbum.csproj:16"
+      ],
+      "Explanation": "[CVE-2026-106110](https://github.com/advisories/GHSA-j9gm-c75j-xc9q): ImageSharp: TIFF CCITT T4 encoder can write past its compressed output buffer\n\nSeverity: HIGH\n\nAffected dependencies:\n  - SixLabors.ImageSharp:3.1.11 (direct dependency declared in PhotoAlbum/PhotoAlbum.csproj:16; also transitive in PhotoAlbum.Tests); vulnerable range >= 2.0.0, <= 4.1.1; first patched version 4.1.2"
+    },
+    {
+      "Id": "CVE-2026-106113",
+      "Name": "ImageSharp: HistogramEqualization uses an unvalidated luminance as an unchecked histogram index",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2026-106113](https://github.com/advisories/GHSA-j3p4-wp97-rph4): ImageSharp: HistogramEqualization uses an unvalidated luminance as an unchecked histogram index\n\nSeverity: HIGH\n\nAffected dependencies:\n  - SixLabors.ImageSharp:3.1.11 (direct dependency declared in PhotoAlbum/PhotoAlbum.csproj:16; also transitive in PhotoAlbum.Tests); vulnerable range >= 2.0.0, <= 4.1.1; first patched version 4.1.2",
+      "Files": [
+        "PhotoAlbum/PhotoAlbum.csproj:16"
+      ],
+      "Explanation": "[CVE-2026-106113](https://github.com/advisories/GHSA-j3p4-wp97-rph4): ImageSharp: HistogramEqualization uses an unvalidated luminance as an unchecked histogram index\n\nSeverity: HIGH\n\nAffected dependencies:\n  - SixLabors.ImageSharp:3.1.11 (direct dependency declared in PhotoAlbum/PhotoAlbum.csproj:16; also transitive in PhotoAlbum.Tests); vulnerable range >= 2.0.0, <= 4.1.1; first patched version 4.1.2"
+    }
+  ],
+  "CweFindings": [
+    {
+      "Id": "CWE-772",
+      "Name": "Missing Release of Resource after Effective Lifetime",
+      "Category": "Code Quality",
+      "Severity": "potential",
+      "StoryPoint": 3,
+      "Description": "The product does not release a resource after its effective lifetime has ended, i.e., after the resource is no longer needed.",
+      "Files": [
+        "PhotoAlbum/Services/PhotoService.cs"
+      ],
+      "Explanation": "PhotoService.UploadPhotoAsync opens an additional stream with file.OpenReadStream() and only sets its Position (line 132); the returned Stream is not assigned to a using scope or disposed after use. Repeated uploads can therefore retain stream resources beyond their effective lifetime."
+    },
+    {
+      "Id": "CWE-820",
+      "Name": "Missing Synchronization",
+      "Category": "Concurrency & Synchronization",
+      "Severity": "potential",
+      "StoryPoint": 8,
+      "Description": "The product utilizes a shared resource in a concurrent manner but does not attempt to synchronize access to the shared resource.",
+      "Files": [
+        "PhotoAlbum/Pages/PhotoFile.cshtml.cs:67",
+        "PhotoAlbum/Services/PhotoService.cs:224-229"
+      ],
+      "Explanation": "PhotoFileModel.OnGetAsync reads a stored photo while PhotoService.DeletePhotoAsync may delete that same file concurrently. The per-request scoped service does not coordinate these accesses, so concurrent requests can race and make an in-progress photo read fail or observe inconsistent file/database state."
+    },
+    {
+      "Id": "CWE-434",
+      "Name": "Unrestricted Upload of File with Dangerous Type",
+      "Category": "File & Path Security",
+      "Severity": "mandatory",
+      "StoryPoint": 8,
+      "Description": "The product allows the upload or transfer of dangerous file types that are automatically processed within its environment.",
+      "Files": [
+        "PhotoAlbum/Services/PhotoService.cs:82",
+        "PhotoAlbum/Services/PhotoService.cs:110",
+        "PhotoAlbum/Services/PhotoService.cs:127",
+        "PhotoAlbum/Services/PhotoService.cs:134"
+      ],
+      "Explanation": "PhotoService.UploadPhotoAsync trusts the client-provided ContentType when checking the allowlist (lines 82-88), then derives the stored extension from the client-provided filename (line 110). ImageSharp decode failures are caught and ignored (lines 125-138), after which the original bytes are still written to the publicly served uploads directory (lines 140-145). A client can therefore label non-image content with an allowed image MIME type and have it stored and served using its supplied extension."
+    }
+  ]
+}
