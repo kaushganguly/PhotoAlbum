@@ -1,7 +1,11 @@
 using Microsoft.EntityFrameworkCore;
+using MetadataExtractor.Formats.Gif;
+using MetadataExtractor.Formats.Jpeg;
+using MetadataExtractor.Formats.Png;
+using MetadataExtractor.Formats.WebP;
+using MetadataExtractor.Util;
 using PhotoAlbum.Data;
 using PhotoAlbum.Models;
-using SixLabors.ImageSharp;
 
 namespace PhotoAlbum.Services;
 
@@ -119,17 +123,38 @@ public class PhotoService : IPhotoService
 
             var fullPath = Path.Combine(_uploadPath, storedFileName);
 
-            // Extract image dimensions using ImageSharp
+            using var imageStream = file.OpenReadStream();
+            var fileType = FileType.Unknown;
+            try
+            {
+                fileType = FileTypeDetector.DetectFileType(imageStream);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogWarning(ex, "Could not detect image format for {FileName}", file.FileName);
+            }
+
+            if (fileType != FileType.Unknown
+                && !string.Equals(fileType.GetMimeType(), file.ContentType, StringComparison.OrdinalIgnoreCase))
+            {
+                result.Success = false;
+                result.ErrorMessage = "File content does not match the specified image type.";
+                return result;
+            }
+
+            imageStream.Position = 0;
+
+            // Extract image dimensions from image metadata
             int? width = null;
             int? height = null;
             try
             {
-                using var image = await Image.LoadAsync(file.OpenReadStream());
-                width = image.Width;
-                height = image.Height;
-
-                // Reset stream position for file saving
-                file.OpenReadStream().Position = 0;
+                if (fileType is FileType.Jpeg or FileType.Png or FileType.Gif or FileType.WebP)
+                {
+                    var dimensions = GetImageDimensions(imageStream);
+                    width = dimensions.Width;
+                    height = dimensions.Height;
+                }
             }
             catch (Exception ex)
             {
@@ -204,6 +229,46 @@ public class PhotoService : IPhotoService
         }
 
         return result;
+    }
+
+    private static (int? Width, int? Height) GetImageDimensions(Stream imageStream)
+    {
+        var directories = MetadataExtractor.ImageMetadataReader.ReadMetadata(imageStream);
+
+        var jpeg = directories.OfType<JpegDirectory>().FirstOrDefault();
+        if (jpeg is not null)
+        {
+            return (jpeg.GetImageWidth(), jpeg.GetImageHeight());
+        }
+
+        var png = directories.OfType<PngDirectory>()
+            .FirstOrDefault(directory =>
+                directory.ContainsTag(PngDirectory.TagImageWidth)
+                && directory.ContainsTag(PngDirectory.TagImageHeight));
+        if (png is not null)
+        {
+            return (
+                Convert.ToInt32(png.GetObject(PngDirectory.TagImageWidth)),
+                Convert.ToInt32(png.GetObject(PngDirectory.TagImageHeight)));
+        }
+
+        var gif = directories.OfType<GifHeaderDirectory>().FirstOrDefault();
+        if (gif is not null)
+        {
+            return (
+                Convert.ToInt32(gif.GetObject(GifHeaderDirectory.TagImageWidth)),
+                Convert.ToInt32(gif.GetObject(GifHeaderDirectory.TagImageHeight)));
+        }
+
+        var webP = directories.OfType<WebPDirectory>().FirstOrDefault();
+        if (webP is not null)
+        {
+            return (
+                Convert.ToInt32(webP.GetObject(WebPDirectory.TagImageWidth)),
+                Convert.ToInt32(webP.GetObject(WebPDirectory.TagImageHeight)));
+        }
+
+        return (null, null);
     }
 
     /// <summary>
