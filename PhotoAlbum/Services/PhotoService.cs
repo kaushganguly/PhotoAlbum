@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using PhotoAlbum.Data;
 using PhotoAlbum.Models;
 using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Formats;
 
 namespace PhotoAlbum.Services;
 
@@ -119,17 +120,38 @@ public class PhotoService : IPhotoService
 
             var fullPath = Path.Combine(_uploadPath, storedFileName);
 
+            using var imageStream = file.OpenReadStream();
+            IImageFormat? imageFormat = null;
+            try
+            {
+                imageFormat = await Image.DetectFormatAsync(imageStream);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogWarning(ex, "Could not detect image format for {FileName}", file.FileName);
+            }
+
+            if (imageFormat is not null
+                && !imageFormat.MimeTypes.Contains(file.ContentType, StringComparer.OrdinalIgnoreCase))
+            {
+                result.Success = false;
+                result.ErrorMessage = "File content does not match the specified image type.";
+                return result;
+            }
+
+            imageStream.Position = 0;
+
             // Extract image dimensions using ImageSharp
             int? width = null;
             int? height = null;
             try
             {
-                using var image = await Image.LoadAsync(file.OpenReadStream());
-                width = image.Width;
-                height = image.Height;
-
-                // Reset stream position for file saving
-                file.OpenReadStream().Position = 0;
+                if (imageFormat is not null)
+                {
+                    using var image = await Image.LoadAsync(imageStream);
+                    width = image.Width;
+                    height = image.Height;
+                }
             }
             catch (Exception ex)
             {
