@@ -1,4 +1,4 @@
-finalStatus: completed
+finalStatus: success
 
 successCriteriaStatus:
   passBuild: true
