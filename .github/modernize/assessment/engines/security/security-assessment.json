@@ -1,0 +1,186 @@
+{
+  "GeneratedAt": "2026-10-26T23:08:45.301487Z",
+  "ProjectPath": ".",
+  "Summary": {
+    "TotalFindings": 13,
+    "CveCount": 6,
+    "CweCount": 7,
+    "BySeverity": {
+      "mandatory": 5,
+      "optional": 6,
+      "potential": 2
+    },
+    "ByCategory": {
+      "CVE": 6,
+      "Code Quality": 2,
+      "Credentials & Secrets": 3,
+      "File & Path Security": 1,
+      "Injection Attacks": 1
+    },
+    "TotalRulesAssessed": 59,
+    "RulesPassed": 52
+  },
+  "CveFindings": [
+    {
+      "Id": "CVE-2026-106115",
+      "Name": "ImageSharp: TIFF CCITT T6 encoder writes beyond an undersized output buffer",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2026-106115](https://github.com/advisories/GHSA-jjfr-hcj7-qf5w) \u2014 ImageSharp: TIFF CCITT T6 encoder writes beyond an undersized output buffer\n\nSeverity: HIGH\n\nAffected dependencies:\n  - SixLabors.ImageSharp 3.1.11 (declared at PhotoAlbum/PhotoAlbum.csproj:16)\n\nRecommended fix:\n  - Upgrade SixLabors.ImageSharp to 3.2.0 or later",
+      "Files": [
+        "PhotoAlbum/PhotoAlbum.csproj:16"
+      ],
+      "Explanation": "[CVE-2026-106115](https://github.com/advisories/GHSA-jjfr-hcj7-qf5w) \u2014 ImageSharp: TIFF CCITT T6 encoder writes beyond an undersized output buffer\n\nSeverity: HIGH\n\nAffected dependencies:\n  - SixLabors.ImageSharp 3.1.11 (declared at PhotoAlbum/PhotoAlbum.csproj:16)\n\nRecommended fix:\n  - Upgrade SixLabors.ImageSharp to 3.2.0 or later"
+    },
+    {
+      "Id": "CVE-2026-106116",
+      "Name": "ImageSharp: BigTIFF IFD count can keep a decoder thread in a non-progressing loop",
+      "Category": "CVE",
+      "Severity": "optional",
+      "StoryPoint": 1,
+      "Description": "[CVE-2026-106116](https://github.com/advisories/GHSA-wmxv-xphr-5c9g) \u2014 ImageSharp: BigTIFF IFD count can keep a decoder thread in a non-progressing loop\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - SixLabors.ImageSharp 3.1.11 (declared at PhotoAlbum/PhotoAlbum.csproj:16)\n\nRecommended fix:\n  - Upgrade SixLabors.ImageSharp to 3.2.0 or later",
+      "Files": [
+        "PhotoAlbum/PhotoAlbum.csproj:16"
+      ],
+      "Explanation": "[CVE-2026-106116](https://github.com/advisories/GHSA-wmxv-xphr-5c9g) \u2014 ImageSharp: BigTIFF IFD count can keep a decoder thread in a non-progressing loop\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - SixLabors.ImageSharp 3.1.11 (declared at PhotoAlbum/PhotoAlbum.csproj:16)\n\nRecommended fix:\n  - Upgrade SixLabors.ImageSharp to 3.2.0 or later"
+    },
+    {
+      "Id": "CVE-2026-106110",
+      "Name": "ImageSharp: TIFF CCITT T4 encoder can write past its compressed output buffer",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2026-106110](https://github.com/advisories/GHSA-j9gm-c75j-xc9q) \u2014 ImageSharp: TIFF CCITT T4 encoder can write past its compressed output buffer\n\nSeverity: HIGH\n\nAffected dependencies:\n  - SixLabors.ImageSharp 3.1.11 (declared at PhotoAlbum/PhotoAlbum.csproj:16)\n\nRecommended fix:\n  - Upgrade SixLabors.ImageSharp to 3.2.0 or later",
+      "Files": [
+        "PhotoAlbum/PhotoAlbum.csproj:16"
+      ],
+      "Explanation": "[CVE-2026-106110](https://github.com/advisories/GHSA-j9gm-c75j-xc9q) \u2014 ImageSharp: TIFF CCITT T4 encoder can write past its compressed output buffer\n\nSeverity: HIGH\n\nAffected dependencies:\n  - SixLabors.ImageSharp 3.1.11 (declared at PhotoAlbum/PhotoAlbum.csproj:16)\n\nRecommended fix:\n  - Upgrade SixLabors.ImageSharp to 3.2.0 or later"
+    },
+    {
+      "Id": "CVE-2026-106113",
+      "Name": "ImageSharp: HistogramEqualization uses an unvalidated luminance as an unchecked histogram index",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2026-106113](https://github.com/advisories/GHSA-j3p4-wp97-rph4) \u2014 ImageSharp: HistogramEqualization uses an unvalidated luminance as an unchecked histogram index\n\nSeverity: HIGH\n\nAffected dependencies:\n  - SixLabors.ImageSharp 3.1.11 (declared at PhotoAlbum/PhotoAlbum.csproj:16)\n\nRecommended fix:\n  - Upgrade SixLabors.ImageSharp to 3.2.0 or later",
+      "Files": [
+        "PhotoAlbum/PhotoAlbum.csproj:16"
+      ],
+      "Explanation": "[CVE-2026-106113](https://github.com/advisories/GHSA-j3p4-wp97-rph4) \u2014 ImageSharp: HistogramEqualization uses an unvalidated luminance as an unchecked histogram index\n\nSeverity: HIGH\n\nAffected dependencies:\n  - SixLabors.ImageSharp 3.1.11 (declared at PhotoAlbum/PhotoAlbum.csproj:16)\n\nRecommended fix:\n  - Upgrade SixLabors.ImageSharp to 3.2.0 or later"
+    },
+    {
+      "Id": "CVE-2026-106114",
+      "Name": "ImageSharp: ICC CLUT parsing allocates from unvalidated channel and grid dimensions",
+      "Category": "CVE",
+      "Severity": "optional",
+      "StoryPoint": 1,
+      "Description": "[CVE-2026-106114](https://github.com/advisories/GHSA-gwg2-r3hj-4w44) \u2014 ImageSharp: ICC CLUT parsing allocates from unvalidated channel and grid dimensions\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - SixLabors.ImageSharp 3.1.11 (declared at PhotoAlbum/PhotoAlbum.csproj:16)\n\nRecommended fix:\n  - Upgrade SixLabors.ImageSharp to 3.2.0 or later",
+      "Files": [
+        "PhotoAlbum/PhotoAlbum.csproj:16"
+      ],
+      "Explanation": "[CVE-2026-106114](https://github.com/advisories/GHSA-gwg2-r3hj-4w44) \u2014 ImageSharp: ICC CLUT parsing allocates from unvalidated channel and grid dimensions\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - SixLabors.ImageSharp 3.1.11 (declared at PhotoAlbum/PhotoAlbum.csproj:16)\n\nRecommended fix:\n  - Upgrade SixLabors.ImageSharp to 3.2.0 or later"
+    },
+    {
+      "Id": "CVE-2026-106118",
+      "Name": "ImageSharp: Tiled fax TIFF: tile buffer sized by TileWidth but fax decompressor writes scanlines of ImageWidth \u2014 heap OOB write",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2026-106118](https://github.com/advisories/GHSA-v76p-62qx-wwq2) \u2014 ImageSharp: Tiled fax TIFF: tile buffer sized by TileWidth but fax decompressor writes scanlines of ImageWidth \u2014 heap OOB write\n\nSeverity: HIGH\n\nAffected dependencies:\n  - SixLabors.ImageSharp 3.1.11 (declared at PhotoAlbum/PhotoAlbum.csproj:16)\n\nRecommended fix:\n  - Upgrade SixLabors.ImageSharp to 3.2.0 or later",
+      "Files": [
+        "PhotoAlbum/PhotoAlbum.csproj:16"
+      ],
+      "Explanation": "[CVE-2026-106118](https://github.com/advisories/GHSA-v76p-62qx-wwq2) \u2014 ImageSharp: Tiled fax TIFF: tile buffer sized by TileWidth but fax decompressor writes scanlines of ImageWidth \u2014 heap OOB write\n\nSeverity: HIGH\n\nAffected dependencies:\n  - SixLabors.ImageSharp 3.1.11 (declared at PhotoAlbum/PhotoAlbum.csproj:16)\n\nRecommended fix:\n  - Upgrade SixLabors.ImageSharp to 3.2.0 or later"
+    }
+  ],
+  "CweFindings": [
+    {
+      "Id": "CWE-606",
+      "Name": "Unchecked Input for Loop Condition",
+      "Category": "Code Quality",
+      "Severity": "potential",
+      "StoryPoint": 3,
+      "Description": "The product does not properly check inputs that are used for loop conditions, potentially leading to a denial of service or other consequences because of excessive looping.",
+      "Files": [
+        "PhotoAlbum/Pages/Index.cshtml.cs"
+      ],
+      "Explanation": "IndexModel.OnPostUploadAsync iterates directly over the caller-supplied multipart file collection. Although a MaxFilesPerUpload value of 10 exists in configuration, the handler does not enforce it. A request can submit many small files, causing repeated validation, image processing, filesystem operations, and database calls in the loop; the overall request-size limit does not impose the configured file-count bound."
+    },
+    {
+      "Id": "CWE-772",
+      "Name": "Missing Release of Resource after Effective Lifetime",
+      "Category": "Code Quality",
+      "Severity": "potential",
+      "StoryPoint": 3,
+      "Description": "The product does not release a resource after its effective lifetime has ended, i.e., after the resource is no longer needed.",
+      "Files": [
+        "PhotoAlbum/Services/PhotoService.cs"
+      ],
+      "Explanation": "PhotoService.UploadPhotoAsync opens a stream with file.OpenReadStream() and passes it to Image.LoadAsync without disposing the stream. It then opens a second stream only to reset its position and also leaves that stream undisposed. These caller-created disposable stream resources are not released at their effective lifetime in the method."
+    },
+    {
+      "Id": "CWE-259",
+      "Name": "Use of Hard-coded Password",
+      "Category": "Credentials & Secrets",
+      "Severity": "optional",
+      "StoryPoint": 5,
+      "Description": "The product contains a hard-coded password, which it uses for its own inbound authentication or for outbound communication to external components.",
+      "Files": [
+        "infra/main.bicep"
+      ],
+      "Explanation": "The infrastructure template defines the SQL administrator password from a source-controlled expression containing a fixed password prefix combined with a deterministic uniqueString value. This supplies a credential used for SQL administrator authentication rather than obtaining the password from a secret provider."
+    },
+    {
+      "Id": "CWE-732",
+      "Name": "Incorrect Permission Assignment for Critical Resource",
+      "Category": "Credentials & Secrets",
+      "Severity": "optional",
+      "StoryPoint": 5,
+      "Description": "The product specifies permissions for a security-critical resource in a way that allows that resource to be read or modified by unintended actors.",
+      "Files": [
+        "infra/main.bicep"
+      ],
+      "Explanation": "The Container Registry is configured with its administrative user enabled even though the Container App is separately configured to pull using its system-assigned managed identity (lines 162-170). The enabled registry admin account provides a broad registry-level credential path in addition to the scoped identity access."
+    },
+    {
+      "Id": "CWE-798",
+      "Name": "Use of Hard-coded Credentials",
+      "Category": "Credentials & Secrets",
+      "Severity": "optional",
+      "StoryPoint": 5,
+      "Description": "The product contains hard-coded credentials, such as a password or cryptographic key.",
+      "Files": [
+        "infra/main.bicep"
+      ],
+      "Explanation": "The SQL Server administrator credential is defined in source-controlled infrastructure as a deterministic expression with a fixed password prefix, then passed as administratorLoginPassword. The credential is not retrieved from a dedicated secret store."
+    },
+    {
+      "Id": "CWE-434",
+      "Name": "Unrestricted Upload of File with Dangerous Type",
+      "Category": "File & Path Security",
+      "Severity": "mandatory",
+      "StoryPoint": 8,
+      "Description": "The product allows the upload or transfer of dangerous file types that are automatically processed within its environment.",
+      "Files": [
+        "PhotoAlbum/Services/PhotoService.cs:82",
+        "PhotoAlbum/Services/PhotoService.cs:110",
+        "PhotoAlbum/Services/PhotoService.cs:125-144"
+      ],
+      "Explanation": "PhotoService.UploadPhotoAsync checks the caller-controlled file.ContentType against an image MIME allowlist (line 82), but preserves the caller-provided filename extension in the generated stored name (line 110). ImageSharp decode failures are caught and ignored, after which the original bytes are still written beneath the public wwwroot/uploads directory (lines 125-144). A multipart request can therefore claim an allowed image MIME type while providing non-image content and a dangerous extension such as .html, which can be served as active content."
+    },
+    {
+      "Id": "CWE-79",
+      "Name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+      "Category": "Injection Attacks",
+      "Severity": "optional",
+      "StoryPoint": 8,
+      "Description": "The product does not neutralize or incorrectly neutralizes user-controllable input before it is placed in output that is used as a web page that is served to other users.",
+      "Files": [
+        "PhotoAlbum/wwwroot/js/upload.js:189-198",
+        "PhotoAlbum/wwwroot/js/upload.js:223-226"
+      ],
+      "Explanation": "createPhotoCard interpolates photo.originalFileName, which originates from the uploaded file name, directly into HTML attributes and text (lines 193, 196-197); the resulting string is inserted with insertAdjacentHTML (lines 164-166). showErrors also interpolates server-returned error strings, including the user-supplied filename, into innerHTML (lines 223-226). These paths do not HTML-escape the untrusted filename before rendering it to other users."
+    }
+  ]
+}
