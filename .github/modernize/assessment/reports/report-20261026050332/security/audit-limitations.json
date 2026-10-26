@@ -1,0 +1,5 @@
+{
+  "dependencyCoordinates": 119,
+  "apiErrors": [],
+  "method": "Unauthenticated GitHub REST fallback after gh authentication unavailable; NuGet audit also succeeded"
+}

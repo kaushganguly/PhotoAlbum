@@ -2,6 +2,9 @@
   "version": "1.0.0",
   "producer": ".NET AppCAT CLI",
   "metadata": {
+    "assessmentLimitations": [
+      "AppCAT reported 'Msbuild was not found' for both projects on Linux before completing analysis. Findings may be incomplete; confirm them in a supported build environment."
+    ],
     "analysisStartTime": "2026-10-26T05:03:32.7017606Z",
     "analysisEndTime": "2026-10-26T05:03:36.2504014Z",
     "privacyMode": "Restricted",
@@ -1191,7 +1194,7 @@
     },
     "Connection.0001": {
       "id": "Connection.0001",
-      "description": "Connection string detected. It may not be available when your app is migrated to Azure.\n\nReview and ensure it works from Azure. If you are connecting to a database, you might need to migrate the database to Azure. There are multiple ways to do it:\n    1. Migrate to Azure SQL Database for additional benefits (see the link below).\n    2. Consider Azure SQL Managed Instance if you need features that are not available in Azure SQL Database and you don\u2019t want to use a VM.\n    3. Migrate your database servers directly to SQL Server on Azure VMs.\n\nTo assess database migration effort, you can use Azure Migrate tool, see the link below.",
+      "description": "Connection string detected. It may not be available when your app is migrated to Azure.\n\nReview and ensure it works from Azure. If you are connecting to a database, you might need to migrate the database to Azure. There are multiple ways to do it:\n    1. Migrate to Azure SQL Database for additional benefits (see the link below).\n    2. Consider Azure SQL Managed Instance if you need features that are not available in Azure SQL Database and you don’t want to use a VM.\n    3. Migrate your database servers directly to SQL Server on Azure VMs.\n\nTo assess database migration effort, you can use Azure Migrate tool, see the link below.",
       "title": "Connection string is detected",
       "severity": "potential",
       "effort": 3,
@@ -1247,7 +1250,7 @@
     },
     "Database.0002": {
       "id": "Database.0002",
-      "description": "SQL database connection detected.\n\nEnsure the database is available/reachable on Azure.\n\nIf it is not, there are multiple ways you can move your data to Azure:\n    1. Migrate to Azure SQL Database.\n    2. Consider Azure SQL Managed Instance if you need features that are not available in Azure SQL Database and you don\u2019t want to use a VM.\n    3. Migrate your database servers directly to SQL Server on Azure VMs.\n\nTo assess database migration effort, you can use Azure Migrate tool, see the link below.",
+      "description": "SQL database connection detected.\n\nEnsure the database is available/reachable on Azure.\n\nIf it is not, there are multiple ways you can move your data to Azure:\n    1. Migrate to Azure SQL Database.\n    2. Consider Azure SQL Managed Instance if you need features that are not available in Azure SQL Database and you don’t want to use a VM.\n    3. Migrate your database servers directly to SQL Server on Azure VMs.\n\nTo assess database migration effort, you can use Azure Migrate tool, see the link below.",
       "title": "SQL database connection detected",
       "severity": "potential",
       "effort": 3,
@@ -1269,7 +1272,7 @@
     },
     "Identity.0002": {
       "id": "Identity.0002",
-      "description": "Your app is using windows authentication which is not supported on Azure App Service, Azure Container Apps and Azure Kubernetes Service.\n\nAzure App Service provides built-in authentication and authorization capabilities, so you can sign in users and access data by writing minimal or no code in your web app.\n\nFollow the link below for more information.\u0022",
+      "description": "Your app is using windows authentication which is not supported on Azure App Service, Azure Container Apps and Azure Kubernetes Service.\n\nAzure App Service provides built-in authentication and authorization capabilities, so you can sign in users and access data by writing minimal or no code in your web app.\n\nFollow the link below for more information.\"",
       "title": "Windows authentication detected",
       "severity": "mandatory",
       "effort": 3,
@@ -1302,5 +1305,175 @@
       ],
       "labels": []
     }
-  }
+  },
+  "security": [
+    {
+      "id": "CVE-2026-106115",
+      "title": "ImageSharp: TIFF CCITT T6 encoder writes beyond an undersized output buffer",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-106115](https://github.com/advisories/GHSA-jjfr-hcj7-qf5w): ImageSharp: TIFF CCITT T6 encoder writes beyond an undersized output buffer\n\nSeverity: HIGH\n\nAffected dependency: SixLabors.ImageSharp 3.1.11, directly declared at PhotoAlbum/PhotoAlbum.csproj:16 and transitively resolved by PhotoAlbum.Tests through its application project reference (not a test-project package declaration). Affected range: >= 2.1.0, <= 4.1.1. Both dotnet list package --include-transitive --vulnerable and GitHub REST advisories confirm this version.\n\nRecommended fix: upgrade to 4.1.2 or later, checking major-version compatibility. This identifies vulnerable dependency presence; TIFF encoding and histogram-processing APIs are not used by current application code, so exploitability of those specific advisories is not established.",
+      "evidence": {
+        "files": [
+          "PhotoAlbum/PhotoAlbum.csproj:16"
+        ],
+        "explanation": "[CVE-2026-106115](https://github.com/advisories/GHSA-jjfr-hcj7-qf5w): ImageSharp: TIFF CCITT T6 encoder writes beyond an undersized output buffer\n\nSeverity: HIGH\n\nAffected dependency: SixLabors.ImageSharp 3.1.11, directly declared at PhotoAlbum/PhotoAlbum.csproj:16 and transitively resolved by PhotoAlbum.Tests through its application project reference (not a test-project package declaration). Affected range: >= 2.1.0, <= 4.1.1. Both dotnet list package --include-transitive --vulnerable and GitHub REST advisories confirm this version.\n\nRecommended fix: upgrade to 4.1.2 or later, checking major-version compatibility. This identifies vulnerable dependency presence; TIFF encoding and histogram-processing APIs are not used by current application code, so exploitability of those specific advisories is not established."
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-106116",
+      "title": "ImageSharp: BigTIFF IFD count can keep a decoder thread in a non-progressing loop",
+      "category": "CVE",
+      "severity": "optional",
+      "description": "[CVE-2026-106116](https://github.com/advisories/GHSA-wmxv-xphr-5c9g): ImageSharp: BigTIFF IFD count can keep a decoder thread in a non-progressing loop\n\nSeverity: MEDIUM\n\nAffected dependency: SixLabors.ImageSharp 3.1.11, directly declared at PhotoAlbum/PhotoAlbum.csproj:16 and transitively resolved by PhotoAlbum.Tests through its application project reference (not a test-project package declaration). Affected range: >= 2.0.0, <= 4.1.1. Both dotnet list package --include-transitive --vulnerable and GitHub REST advisories confirm this version.\n\nRecommended fix: upgrade to 4.1.2 or later, checking major-version compatibility. This identifies vulnerable dependency presence; TIFF encoding and histogram-processing APIs are not used by current application code, so exploitability of those specific advisories is not established.",
+      "evidence": {
+        "files": [
+          "PhotoAlbum/PhotoAlbum.csproj:16"
+        ],
+        "explanation": "[CVE-2026-106116](https://github.com/advisories/GHSA-wmxv-xphr-5c9g): ImageSharp: BigTIFF IFD count can keep a decoder thread in a non-progressing loop\n\nSeverity: MEDIUM\n\nAffected dependency: SixLabors.ImageSharp 3.1.11, directly declared at PhotoAlbum/PhotoAlbum.csproj:16 and transitively resolved by PhotoAlbum.Tests through its application project reference (not a test-project package declaration). Affected range: >= 2.0.0, <= 4.1.1. Both dotnet list package --include-transitive --vulnerable and GitHub REST advisories confirm this version.\n\nRecommended fix: upgrade to 4.1.2 or later, checking major-version compatibility. This identifies vulnerable dependency presence; TIFF encoding and histogram-processing APIs are not used by current application code, so exploitability of those specific advisories is not established."
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-106110",
+      "title": "ImageSharp: TIFF CCITT T4 encoder can write past its compressed output buffer",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-106110](https://github.com/advisories/GHSA-j9gm-c75j-xc9q): ImageSharp: TIFF CCITT T4 encoder can write past its compressed output buffer\n\nSeverity: HIGH\n\nAffected dependency: SixLabors.ImageSharp 3.1.11, directly declared at PhotoAlbum/PhotoAlbum.csproj:16 and transitively resolved by PhotoAlbum.Tests through its application project reference (not a test-project package declaration). Affected range: >= 2.0.0, <= 4.1.1. Both dotnet list package --include-transitive --vulnerable and GitHub REST advisories confirm this version.\n\nRecommended fix: upgrade to 4.1.2 or later, checking major-version compatibility. This identifies vulnerable dependency presence; TIFF encoding and histogram-processing APIs are not used by current application code, so exploitability of those specific advisories is not established.",
+      "evidence": {
+        "files": [
+          "PhotoAlbum/PhotoAlbum.csproj:16"
+        ],
+        "explanation": "[CVE-2026-106110](https://github.com/advisories/GHSA-j9gm-c75j-xc9q): ImageSharp: TIFF CCITT T4 encoder can write past its compressed output buffer\n\nSeverity: HIGH\n\nAffected dependency: SixLabors.ImageSharp 3.1.11, directly declared at PhotoAlbum/PhotoAlbum.csproj:16 and transitively resolved by PhotoAlbum.Tests through its application project reference (not a test-project package declaration). Affected range: >= 2.0.0, <= 4.1.1. Both dotnet list package --include-transitive --vulnerable and GitHub REST advisories confirm this version.\n\nRecommended fix: upgrade to 4.1.2 or later, checking major-version compatibility. This identifies vulnerable dependency presence; TIFF encoding and histogram-processing APIs are not used by current application code, so exploitability of those specific advisories is not established."
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-106113",
+      "title": "ImageSharp: HistogramEqualization uses an unvalidated luminance as an unchecked histogram index",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-106113](https://github.com/advisories/GHSA-j3p4-wp97-rph4): ImageSharp: HistogramEqualization uses an unvalidated luminance as an unchecked histogram index\n\nSeverity: HIGH\n\nAffected dependency: SixLabors.ImageSharp 3.1.11, directly declared at PhotoAlbum/PhotoAlbum.csproj:16 and transitively resolved by PhotoAlbum.Tests through its application project reference (not a test-project package declaration). Affected range: >= 2.0.0, <= 4.1.1. Both dotnet list package --include-transitive --vulnerable and GitHub REST advisories confirm this version.\n\nRecommended fix: upgrade to 4.1.2 or later, checking major-version compatibility. This identifies vulnerable dependency presence; TIFF encoding and histogram-processing APIs are not used by current application code, so exploitability of those specific advisories is not established.",
+      "evidence": {
+        "files": [
+          "PhotoAlbum/PhotoAlbum.csproj:16"
+        ],
+        "explanation": "[CVE-2026-106113](https://github.com/advisories/GHSA-j3p4-wp97-rph4): ImageSharp: HistogramEqualization uses an unvalidated luminance as an unchecked histogram index\n\nSeverity: HIGH\n\nAffected dependency: SixLabors.ImageSharp 3.1.11, directly declared at PhotoAlbum/PhotoAlbum.csproj:16 and transitively resolved by PhotoAlbum.Tests through its application project reference (not a test-project package declaration). Affected range: >= 2.0.0, <= 4.1.1. Both dotnet list package --include-transitive --vulnerable and GitHub REST advisories confirm this version.\n\nRecommended fix: upgrade to 4.1.2 or later, checking major-version compatibility. This identifies vulnerable dependency presence; TIFF encoding and histogram-processing APIs are not used by current application code, so exploitability of those specific advisories is not established."
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-106114",
+      "title": "ImageSharp: ICC CLUT parsing allocates from unvalidated channel and grid dimensions",
+      "category": "CVE",
+      "severity": "optional",
+      "description": "[CVE-2026-106114](https://github.com/advisories/GHSA-gwg2-r3hj-4w44): ImageSharp: ICC CLUT parsing allocates from unvalidated channel and grid dimensions\n\nSeverity: MEDIUM\n\nAffected dependency: SixLabors.ImageSharp 3.1.11, directly declared at PhotoAlbum/PhotoAlbum.csproj:16 and transitively resolved by PhotoAlbum.Tests through its application project reference (not a test-project package declaration). Affected range: >= 1.0.0-beta0001, <= 4.1.1. Both dotnet list package --include-transitive --vulnerable and GitHub REST advisories confirm this version.\n\nRecommended fix: upgrade to 4.1.2 or later, checking major-version compatibility. This identifies vulnerable dependency presence; TIFF encoding and histogram-processing APIs are not used by current application code, so exploitability of those specific advisories is not established.",
+      "evidence": {
+        "files": [
+          "PhotoAlbum/PhotoAlbum.csproj:16"
+        ],
+        "explanation": "[CVE-2026-106114](https://github.com/advisories/GHSA-gwg2-r3hj-4w44): ImageSharp: ICC CLUT parsing allocates from unvalidated channel and grid dimensions\n\nSeverity: MEDIUM\n\nAffected dependency: SixLabors.ImageSharp 3.1.11, directly declared at PhotoAlbum/PhotoAlbum.csproj:16 and transitively resolved by PhotoAlbum.Tests through its application project reference (not a test-project package declaration). Affected range: >= 1.0.0-beta0001, <= 4.1.1. Both dotnet list package --include-transitive --vulnerable and GitHub REST advisories confirm this version.\n\nRecommended fix: upgrade to 4.1.2 or later, checking major-version compatibility. This identifies vulnerable dependency presence; TIFF encoding and histogram-processing APIs are not used by current application code, so exploitability of those specific advisories is not established."
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CWE-789",
+      "title": "Memory Allocation with Excessive Size Value",
+      "category": "Code Quality",
+      "severity": "potential",
+      "description": "The product allocates memory based on an untrusted, large size value, but it does not ensure that the size is within expected limits, allowing arbitrary amounts of memory to be allocated.",
+      "evidence": {
+        "files": [
+          "PhotoAlbum/Services/PhotoService.cs:92",
+          "PhotoAlbum/Services/PhotoService.cs:127",
+          "PhotoAlbum/Pages/Index.cshtml.cs:53"
+        ],
+        "explanation": "PhotoService.UploadPhotoAsync bounds only the compressed upload byte count (92-99), then Image.LoadAsync (127) fully decodes attacker-supplied image data to extract width/height. There is no application pixel-count, frame-count, decoded-byte budget, or configured image allocator limit before this allocation. Highly compressed large-dimension/multiframe PNG/GIF input can remain below 10MB while its decoded pixel buffers require much more memory. IndexModel.OnPostUploadAsync exposes this path to uploaded files without authentication. Image disposal occurs only after decoding; catching decoder exceptions does not prevent peak memory exhaustion. This is an application-level resource bound omission, independent of the separately reported ImageSharp CVEs. No oversized image was generated or executed against shared resources."
+      },
+      "storyPoint": 5
+    },
+    {
+      "id": "CWE-259",
+      "title": "Use of Hard-coded Password",
+      "category": "Credentials & Secrets",
+      "severity": "optional",
+      "description": "The product contains a hard-coded password, which it uses for its own inbound authentication or for outbound communication to external components.",
+      "evidence": {
+        "files": [
+          "infra/main.bicep:59",
+          "infra/main.bicep:68"
+        ],
+        "explanation": "The SQL administrator credential is constructed at infra/main.bicep:59 from a fixed source-code password prefix and uniqueString(resourceGroup().id, environmentName), then used as administratorLoginPassword at line 68. uniqueString is a deterministic naming hash of non-secret deployment identifiers, not a cryptographic random secret; the credential is reproducible from source plus those identifiers and has no independent secret input. This is a source-defined deterministic administrator credential, not a recovered live credential. Credential text is intentionally omitted. The alternative azure-setup.sh path uses openssl randomness and is not classified as a hard-coded password."
+      },
+      "storyPoint": 5
+    },
+    {
+      "id": "CWE-732",
+      "title": "Incorrect Permission Assignment for Critical Resource",
+      "category": "Credentials & Secrets",
+      "severity": "optional",
+      "description": "The product specifies permissions for a security-critical resource in a way that allows that resource to be read or modified by unintended actors.",
+      "evidence": {
+        "files": [
+          "PhotoAlbum/Pages/Detail.cshtml.cs:92",
+          "PhotoAlbum/Services/PhotoService.cs:212",
+          "PhotoAlbum/Program.cs:8",
+          "PhotoAlbum/Program.cs:74"
+        ],
+        "explanation": "DetailModel.OnPostDeleteAsync accepts an arbitrary photo ID (92-96) and PhotoService.DeletePhotoAsync removes the corresponding file and database row (216-240), without checking identity or ownership. Program registers no authentication and no page authorization convention/policy, and the page model has no authorization attribute. Thus any site visitor, not just a photo owner/administrator, can obtain the publicly rendered form antiforgery token and delete any listed photo. Antiforgery validation does not assign permission to mutate another visitor's resource. This finding concerns destructive access; the public read-only gallery itself is not treated as a vulnerability. Static authorization/dataflow review; no files were deleted."
+      },
+      "storyPoint": 5
+    },
+    {
+      "id": "CWE-798",
+      "title": "Use of Hard-coded Credentials",
+      "category": "Credentials & Secrets",
+      "severity": "optional",
+      "description": "The product contains hard-coded credentials, such as a password or cryptographic key.",
+      "evidence": {
+        "files": [
+          "infra/main.bicep:58",
+          "infra/main.bicep:59",
+          "infra/main.bicep:67"
+        ],
+        "explanation": "The deployment source fixes the SQL administrator login at line 58 and determines its entire password using a fixed source prefix plus a deterministic uniqueString of the resource-group ID and environment name (59). The pair is installed as SQL administrator credentials at 67-68. Knowing the public/non-secret deployment identifiers and repository source suffices to reproduce the source-defined credential; no secret parameter, vault value, or random entropy participates in this Bicep path. Credential values are redacted from this report; no deployed account was accessed."
+      },
+      "storyPoint": 5
+    },
+    {
+      "id": "CWE-434",
+      "title": "Unrestricted Upload of File with Dangerous Type",
+      "category": "File & Path Security",
+      "severity": "mandatory",
+      "description": "The product allows the upload or transfer of dangerous file types that are automatically processed within its environment.",
+      "evidence": {
+        "files": [
+          "PhotoAlbum/Services/PhotoService.cs:82",
+          "PhotoAlbum/Services/PhotoService.cs:110",
+          "PhotoAlbum/Services/PhotoService.cs:134",
+          "PhotoAlbum/Program.cs:63"
+        ],
+        "explanation": "PhotoService.UploadPhotoAsync trusts the client ContentType (line 82), preserves an unrestricted extension (110-112), ignores image-decoding failures (134-138), and persists the original bytes (143-144). A multipart file named payload.html with Content-Type image/jpeg and HTML/JavaScript content is therefore stored as a GUID.html under wwwroot/uploads. Program.cs:63 serves that directory as static files; the extension causes HTML to be returned as text/html, allowing attacker-supplied active content on the application origin. The upload response reveals the static filePath (Index.cshtml.cs:78). No executable server-side upload behavior is assumed."
+      },
+      "storyPoint": 8
+    },
+    {
+      "id": "CWE-79",
+      "title": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+      "category": "Injection Attacks",
+      "severity": "optional",
+      "description": "The product does not neutralize or incorrectly neutralizes user-controllable input before it is placed in output that is used as a web page that is served to other users.",
+      "evidence": {
+        "files": [
+          "PhotoAlbum/wwwroot/js/upload.js:166",
+          "PhotoAlbum/wwwroot/js/upload.js:193",
+          "PhotoAlbum/wwwroot/js/upload.js:224",
+          "PhotoAlbum/Pages/Index.cshtml.cs:77"
+        ],
+        "explanation": "createPhotoCard interpolates the untrusted originalFileName directly into HTML attributes and element text (upload.js:193-197); displayNewPhotos parses that markup with insertAdjacentHTML (166). IndexModel.OnPostUploadAsync returns the original uploaded filename unchanged (77), and PhotoService persists it unchanged (157). showErrors independently inserts filenames from local validation/server failure responses through innerHTML (224-226). A crafted filename containing an HTML element with an event handler is parsed rather than displayed as text when that upload result/error is shown; the DOM finding concerns the uploader/viewer of the crafted file, not all gallery visitors (server-rendered Razor names are encoded). Separately, the confirmed unrestricted .html upload/static-serving path in CWE-434 permits active content to be shared as a same-origin link with other visitors. Static dataflow confirmed; no browser exploit executed."
+      },
+      "storyPoint": 8
+    }
+  ]
 }
