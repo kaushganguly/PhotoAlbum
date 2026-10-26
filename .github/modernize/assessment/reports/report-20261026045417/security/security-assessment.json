@@ -1,0 +1,112 @@
+{
+  "GeneratedAt": "2026-10-26T04:57:48.083763+00:00",
+  "ProjectPath": ".",
+  "Summary": {
+    "TotalFindings": 7,
+    "CveCount": 5,
+    "CweCount": 2,
+    "BySeverity": {
+      "mandatory": 4,
+      "optional": 3,
+      "potential": 0
+    },
+    "ByCategory": {
+      "CVE": 5,
+      "File & Path Security": 1,
+      "Injection Attacks": 1
+    },
+    "TotalRulesAssessed": 59,
+    "RulesPassed": 57
+  },
+  "CveFindings": [
+    {
+      "Id": "CVE-2026-106115",
+      "Name": "ImageSharp: TIFF CCITT T6 encoder writes beyond an undersized output buffer",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2026-106115](https://github.com/advisories/GHSA-jjfr-hcj7-qf5w): ImageSharp: TIFF CCITT T6 encoder writes beyond an undersized output buffer\n\nSeverity: HIGH\n\nAffected dependency: SixLabors.ImageSharp:3.1.11 (direct, PhotoAlbum/PhotoAlbum.csproj:16; also inherited by PhotoAlbum.Tests).\n\nAffected range: >= 2.1.0, <= 4.1.1. Patched version: 4.1.2",
+      "Files": [
+        "PhotoAlbum/PhotoAlbum.csproj:16"
+      ],
+      "Explanation": "[CVE-2026-106115](https://github.com/advisories/GHSA-jjfr-hcj7-qf5w): ImageSharp: TIFF CCITT T6 encoder writes beyond an undersized output buffer\n\nSeverity: HIGH\n\nAffected dependency: SixLabors.ImageSharp:3.1.11 (direct, PhotoAlbum/PhotoAlbum.csproj:16; also inherited by PhotoAlbum.Tests).\n\nAffected range: >= 2.1.0, <= 4.1.1. Patched version: 4.1.2"
+    },
+    {
+      "Id": "CVE-2026-106116",
+      "Name": "ImageSharp: BigTIFF IFD count can keep a decoder thread in a non-progressing loop",
+      "Category": "CVE",
+      "Severity": "optional",
+      "StoryPoint": 1,
+      "Description": "[CVE-2026-106116](https://github.com/advisories/GHSA-wmxv-xphr-5c9g): ImageSharp: BigTIFF IFD count can keep a decoder thread in a non-progressing loop\n\nSeverity: MEDIUM\n\nAffected dependency: SixLabors.ImageSharp:3.1.11 (direct, PhotoAlbum/PhotoAlbum.csproj:16; also inherited by PhotoAlbum.Tests).\n\nAffected range: >= 2.0.0, <= 4.1.1. Patched version: 4.1.2",
+      "Files": [
+        "PhotoAlbum/PhotoAlbum.csproj:16"
+      ],
+      "Explanation": "[CVE-2026-106116](https://github.com/advisories/GHSA-wmxv-xphr-5c9g): ImageSharp: BigTIFF IFD count can keep a decoder thread in a non-progressing loop\n\nSeverity: MEDIUM\n\nAffected dependency: SixLabors.ImageSharp:3.1.11 (direct, PhotoAlbum/PhotoAlbum.csproj:16; also inherited by PhotoAlbum.Tests).\n\nAffected range: >= 2.0.0, <= 4.1.1. Patched version: 4.1.2"
+    },
+    {
+      "Id": "CVE-2026-106110",
+      "Name": "ImageSharp: TIFF CCITT T4 encoder can write past its compressed output buffer",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2026-106110](https://github.com/advisories/GHSA-j9gm-c75j-xc9q): ImageSharp: TIFF CCITT T4 encoder can write past its compressed output buffer\n\nSeverity: HIGH\n\nAffected dependency: SixLabors.ImageSharp:3.1.11 (direct, PhotoAlbum/PhotoAlbum.csproj:16; also inherited by PhotoAlbum.Tests).\n\nAffected range: >= 2.0.0, <= 4.1.1. Patched version: 4.1.2",
+      "Files": [
+        "PhotoAlbum/PhotoAlbum.csproj:16"
+      ],
+      "Explanation": "[CVE-2026-106110](https://github.com/advisories/GHSA-j9gm-c75j-xc9q): ImageSharp: TIFF CCITT T4 encoder can write past its compressed output buffer\n\nSeverity: HIGH\n\nAffected dependency: SixLabors.ImageSharp:3.1.11 (direct, PhotoAlbum/PhotoAlbum.csproj:16; also inherited by PhotoAlbum.Tests).\n\nAffected range: >= 2.0.0, <= 4.1.1. Patched version: 4.1.2"
+    },
+    {
+      "Id": "CVE-2026-106113",
+      "Name": "ImageSharp: HistogramEqualization uses an unvalidated luminance as an unchecked histogram index",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2026-106113](https://github.com/advisories/GHSA-j3p4-wp97-rph4): ImageSharp: HistogramEqualization uses an unvalidated luminance as an unchecked histogram index\n\nSeverity: HIGH\n\nAffected dependency: SixLabors.ImageSharp:3.1.11 (direct, PhotoAlbum/PhotoAlbum.csproj:16; also inherited by PhotoAlbum.Tests).\n\nAffected range: >= 2.0.0, <= 4.1.1. Patched version: 4.1.2",
+      "Files": [
+        "PhotoAlbum/PhotoAlbum.csproj:16"
+      ],
+      "Explanation": "[CVE-2026-106113](https://github.com/advisories/GHSA-j3p4-wp97-rph4): ImageSharp: HistogramEqualization uses an unvalidated luminance as an unchecked histogram index\n\nSeverity: HIGH\n\nAffected dependency: SixLabors.ImageSharp:3.1.11 (direct, PhotoAlbum/PhotoAlbum.csproj:16; also inherited by PhotoAlbum.Tests).\n\nAffected range: >= 2.0.0, <= 4.1.1. Patched version: 4.1.2"
+    },
+    {
+      "Id": "CVE-2026-106114",
+      "Name": "ImageSharp: ICC CLUT parsing allocates from unvalidated channel and grid dimensions",
+      "Category": "CVE",
+      "Severity": "optional",
+      "StoryPoint": 1,
+      "Description": "[CVE-2026-106114](https://github.com/advisories/GHSA-gwg2-r3hj-4w44): ImageSharp: ICC CLUT parsing allocates from unvalidated channel and grid dimensions\n\nSeverity: MEDIUM\n\nAffected dependency: SixLabors.ImageSharp:3.1.11 (direct, PhotoAlbum/PhotoAlbum.csproj:16; also inherited by PhotoAlbum.Tests).\n\nAffected range: >= 1.0.0-beta0001, <= 4.1.1. Patched version: 4.1.2",
+      "Files": [
+        "PhotoAlbum/PhotoAlbum.csproj:16"
+      ],
+      "Explanation": "[CVE-2026-106114](https://github.com/advisories/GHSA-gwg2-r3hj-4w44): ImageSharp: ICC CLUT parsing allocates from unvalidated channel and grid dimensions\n\nSeverity: MEDIUM\n\nAffected dependency: SixLabors.ImageSharp:3.1.11 (direct, PhotoAlbum/PhotoAlbum.csproj:16; also inherited by PhotoAlbum.Tests).\n\nAffected range: >= 1.0.0-beta0001, <= 4.1.1. Patched version: 4.1.2"
+    }
+  ],
+  "CweFindings": [
+    {
+      "Id": "CWE-434",
+      "Name": "Unrestricted Upload of File with Dangerous Type",
+      "Category": "File & Path Security",
+      "Severity": "mandatory",
+      "StoryPoint": 8,
+      "Description": "The product allows the upload or transfer of dangerous file types that are automatically processed within its environment.",
+      "Files": [
+        "PhotoAlbum/Services/PhotoService.cs:81-88",
+        "PhotoAlbum/Services/PhotoService.cs:109-144",
+        "PhotoAlbum/Program.cs:62-70"
+      ],
+      "Explanation": "PhotoService.UploadPhotoAsync trusts the supplied Content-Type, retains the client filename extension, and accepts files even when Image.LoadAsync fails. An anonymous uploader can submit HTML with image/png and an .html extension. Original bytes are saved under wwwroot/uploads and served as HTML by static-file middleware, enabling same-origin stored script execution."
+    },
+    {
+      "Id": "CWE-79",
+      "Name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+      "Category": "Injection Attacks",
+      "Severity": "optional",
+      "StoryPoint": 8,
+      "Description": "The product does not neutralize or incorrectly neutralizes user-controllable input before it is placed in output that is used as a web page that is served to other users.",
+      "Files": [
+        "PhotoAlbum/Services/PhotoService.cs:81-144",
+        "PhotoAlbum/Program.cs:62-70"
+      ],
+      "Explanation": "PhotoService.UploadPhotoAsync permits HTML bytes with an .html extension when Content-Type is image/png and image decoding fails. Static-file middleware serves these uploaded bytes as active HTML under the application origin. A victim following the public upload URL executes attacker-controlled script. This is the same root cause as CWE-434."
+    }
+  ]
+}
