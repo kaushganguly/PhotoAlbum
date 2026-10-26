@@ -1,0 +1,64 @@
+{
+  "GeneratedAt": "2026-10-26T19:48:26.025572Z",
+  "ProjectPath": ".",
+  "Summary": {
+    "TotalFindings": 3,
+    "CveCount": 0,
+    "CweCount": 3,
+    "BySeverity": {
+      "mandatory": 1,
+      "optional": 2,
+      "potential": 0
+    },
+    "ByCategory": {
+      "Credentials & Secrets": 2,
+      "File & Path Security": 1
+    },
+    "TotalRulesAssessed": 59,
+    "RulesPassed": 56
+  },
+  "CveAssessmentNote": "GitHub Advisory API queries returned HTTP 403 rate-limit errors for every package batch; no CVE conclusion can be drawn from the empty result file.",
+  "CveFindings": [],
+  "CweFindings": [
+    {
+      "Id": "CWE-259",
+      "Name": "Use of Hard-coded Password",
+      "Category": "Credentials & Secrets",
+      "Severity": "optional",
+      "StoryPoint": 5,
+      "Description": "The product contains a hard-coded password, which it uses for its own inbound authentication or for outbound communication to external components.",
+      "Files": [
+        "infra/main.bicep:57-59",
+        "infra/main.json:41-44"
+      ],
+      "Explanation": "The SQL administrator password is constructed in the deployment template from a fixed literal prefix and a deterministic value derived from public deployment inputs. This embeds a predictable credential-generation pattern in source-controlled infrastructure."
+    },
+    {
+      "Id": "CWE-798",
+      "Name": "Use of Hard-coded Credentials",
+      "Category": "Credentials & Secrets",
+      "Severity": "optional",
+      "StoryPoint": 5,
+      "Description": "The product contains hard-coded credentials, such as a password or cryptographic key.",
+      "Files": [
+        "infra/main.bicep:57-59",
+        "infra/main.json:41-44"
+      ],
+      "Explanation": "The SQL administrator password is constructed in the deployment template from a fixed literal prefix and a deterministic value derived from public deployment inputs. This embeds a predictable credential-generation pattern in source-controlled infrastructure."
+    },
+    {
+      "Id": "CWE-434",
+      "Name": "Unrestricted Upload of File with Dangerous Type",
+      "Category": "File & Path Security",
+      "Severity": "mandatory",
+      "StoryPoint": 8,
+      "Description": "The product allows the upload or transfer of dangerous file types that are automatically processed within its environment.",
+      "Files": [
+        "PhotoAlbum/Services/PhotoService.cs:81-88",
+        "PhotoAlbum/Services/PhotoService.cs:125-138",
+        "PhotoAlbum/Pages/PhotoFile.cshtml.cs:67-76"
+      ],
+      "Explanation": "PhotoService.UploadPhotoAsync accepts files based on the client-supplied ContentType allowlist. ImageSharp decoding failures are caught and treated as non-fatal, after which the original contents are saved and can be served by PhotoFileModel using the stored MIME type. Thus a non-image payload can be stored and made available as an image upload by claiming an allowed MIME type."
+    }
+  ]
+}
