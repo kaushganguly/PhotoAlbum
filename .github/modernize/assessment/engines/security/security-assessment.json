@@ -1,0 +1,135 @@
+{
+  "GeneratedAt": "2026-10-26T13:42:09.396Z",
+  "ProjectPath": ".",
+  "Summary": {
+    "TotalFindings": 9,
+    "CveCount": 5,
+    "CweCount": 4,
+    "BySeverity": {
+      "mandatory": 4,
+      "optional": 4,
+      "potential": 1
+    },
+    "ByCategory": {
+      "CVE": 5,
+      "Code Quality": 1,
+      "Credentials & Secrets": 2,
+      "File & Path Security": 1
+    },
+    "TotalRulesAssessed": 59,
+    "RulesPassed": 55
+  },
+  "CveFindings": [
+    {
+      "Id": "CVE-2026-106115",
+      "Name": "ImageSharp: TIFF CCITT T6 encoder writes beyond an undersized output buffer",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2026-106115](https://github.com/advisories/GHSA-jjfr-hcj7-qf5w): ImageSharp: TIFF CCITT T6 encoder writes beyond an undersized output buffer\n\nSeverity: HIGH\n\nAffected dependencies:\n  - SixLabors.ImageSharp:3.1.11 (direct, resolved for PhotoAlbum/PhotoAlbum.csproj at line 16)\n\nRecommended fix:\n  - Upgrade to SixLabors.ImageSharp: 4.1.2",
+      "Files": [
+        "PhotoAlbum/PhotoAlbum.csproj:16"
+      ],
+      "Explanation": "[CVE-2026-106115](https://github.com/advisories/GHSA-jjfr-hcj7-qf5w): ImageSharp: TIFF CCITT T6 encoder writes beyond an undersized output buffer\n\nSeverity: HIGH\n\nAffected dependencies:\n  - SixLabors.ImageSharp:3.1.11 (direct, resolved for PhotoAlbum/PhotoAlbum.csproj at line 16)\n\nRecommended fix:\n  - Upgrade to SixLabors.ImageSharp: 4.1.2"
+    },
+    {
+      "Id": "CVE-2026-106116",
+      "Name": "ImageSharp: BigTIFF IFD count can keep a decoder thread in a non-progressing loop",
+      "Category": "CVE",
+      "Severity": "optional",
+      "StoryPoint": 1,
+      "Description": "[CVE-2026-106116](https://github.com/advisories/GHSA-wmxv-xphr-5c9g): ImageSharp: BigTIFF IFD count can keep a decoder thread in a non-progressing loop\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - SixLabors.ImageSharp:3.1.11 (direct, resolved for PhotoAlbum/PhotoAlbum.csproj at line 16)\n\nRecommended fix:\n  - Upgrade to SixLabors.ImageSharp: 4.1.2",
+      "Files": [
+        "PhotoAlbum/PhotoAlbum.csproj:16"
+      ],
+      "Explanation": "[CVE-2026-106116](https://github.com/advisories/GHSA-wmxv-xphr-5c9g): ImageSharp: BigTIFF IFD count can keep a decoder thread in a non-progressing loop\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - SixLabors.ImageSharp:3.1.11 (direct, resolved for PhotoAlbum/PhotoAlbum.csproj at line 16)\n\nRecommended fix:\n  - Upgrade to SixLabors.ImageSharp: 4.1.2"
+    },
+    {
+      "Id": "CVE-2026-106110",
+      "Name": "ImageSharp: TIFF CCITT T4 encoder can write past its compressed output buffer",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2026-106110](https://github.com/advisories/GHSA-j9gm-c75j-xc9q): ImageSharp: TIFF CCITT T4 encoder can write past its compressed output buffer\n\nSeverity: HIGH\n\nAffected dependencies:\n  - SixLabors.ImageSharp:3.1.11 (direct, resolved for PhotoAlbum/PhotoAlbum.csproj at line 16)\n\nRecommended fix:\n  - Upgrade to SixLabors.ImageSharp: 4.1.2",
+      "Files": [
+        "PhotoAlbum/PhotoAlbum.csproj:16"
+      ],
+      "Explanation": "[CVE-2026-106110](https://github.com/advisories/GHSA-j9gm-c75j-xc9q): ImageSharp: TIFF CCITT T4 encoder can write past its compressed output buffer\n\nSeverity: HIGH\n\nAffected dependencies:\n  - SixLabors.ImageSharp:3.1.11 (direct, resolved for PhotoAlbum/PhotoAlbum.csproj at line 16)\n\nRecommended fix:\n  - Upgrade to SixLabors.ImageSharp: 4.1.2"
+    },
+    {
+      "Id": "CVE-2026-106113",
+      "Name": "ImageSharp: HistogramEqualization uses an unvalidated luminance as an unchecked histogram index",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2026-106113](https://github.com/advisories/GHSA-j3p4-wp97-rph4): ImageSharp: HistogramEqualization uses an unvalidated luminance as an unchecked histogram index\n\nSeverity: HIGH\n\nAffected dependencies:\n  - SixLabors.ImageSharp:3.1.11 (direct, resolved for PhotoAlbum/PhotoAlbum.csproj at line 16)\n\nRecommended fix:\n  - Upgrade to SixLabors.ImageSharp: 4.1.2",
+      "Files": [
+        "PhotoAlbum/PhotoAlbum.csproj:16"
+      ],
+      "Explanation": "[CVE-2026-106113](https://github.com/advisories/GHSA-j3p4-wp97-rph4): ImageSharp: HistogramEqualization uses an unvalidated luminance as an unchecked histogram index\n\nSeverity: HIGH\n\nAffected dependencies:\n  - SixLabors.ImageSharp:3.1.11 (direct, resolved for PhotoAlbum/PhotoAlbum.csproj at line 16)\n\nRecommended fix:\n  - Upgrade to SixLabors.ImageSharp: 4.1.2"
+    },
+    {
+      "Id": "CVE-2026-106114",
+      "Name": "ImageSharp: ICC CLUT parsing allocates from unvalidated channel and grid dimensions",
+      "Category": "CVE",
+      "Severity": "optional",
+      "StoryPoint": 1,
+      "Description": "[CVE-2026-106114](https://github.com/advisories/GHSA-gwg2-r3hj-4w44): ImageSharp: ICC CLUT parsing allocates from unvalidated channel and grid dimensions\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - SixLabors.ImageSharp:3.1.11 (direct, resolved for PhotoAlbum/PhotoAlbum.csproj at line 16)\n\nRecommended fix:\n  - Upgrade to SixLabors.ImageSharp: 4.1.2",
+      "Files": [
+        "PhotoAlbum/PhotoAlbum.csproj:16"
+      ],
+      "Explanation": "[CVE-2026-106114](https://github.com/advisories/GHSA-gwg2-r3hj-4w44): ImageSharp: ICC CLUT parsing allocates from unvalidated channel and grid dimensions\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - SixLabors.ImageSharp:3.1.11 (direct, resolved for PhotoAlbum/PhotoAlbum.csproj at line 16)\n\nRecommended fix:\n  - Upgrade to SixLabors.ImageSharp: 4.1.2"
+    }
+  ],
+  "CweFindings": [
+    {
+      "Id": "CWE-772",
+      "Name": "Missing Release of Resource after Effective Lifetime",
+      "Category": "Code Quality",
+      "Severity": "potential",
+      "StoryPoint": 3,
+      "Description": "The product does not release a resource after its effective lifetime has ended, i.e., after the resource is no longer needed.",
+      "Files": [
+        "PhotoAlbum/Services/PhotoService.cs:127,132"
+      ],
+      "Explanation": "UploadPhotoAsync opens a stream with file.OpenReadStream() and passes it to Image.LoadAsync without retaining or disposing the stream (line 127). It then opens a second stream to set Position and immediately discards the reference (line 132), leaving these stream resources unreleased by the method."
+    },
+    {
+      "Id": "CWE-259",
+      "Name": "Use of Hard-coded Password",
+      "Category": "Credentials & Secrets",
+      "Severity": "optional",
+      "StoryPoint": 5,
+      "Description": "The product contains a hard-coded password, which it uses for its own inbound authentication or for outbound communication to external components.",
+      "Files": [
+        "infra/main.json:43"
+      ],
+      "Explanation": "The sqlAdminPassword variable creates the SQL administrator credential as a fixed 'P@ssw0rd' prefix plus ARM uniqueString(resourceGroup().id, environmentName). uniqueString is deterministic from deployment identifiers rather than secret randomness, making the credential reproducible/predictable; the value is passed to the SQL server deployment (infra/main.json:6332)."
+    },
+    {
+      "Id": "CWE-798",
+      "Name": "Use of Hard-coded Credentials",
+      "Category": "Credentials & Secrets",
+      "Severity": "optional",
+      "StoryPoint": 5,
+      "Description": "The product contains hard-coded credentials, such as a password or cryptographic key.",
+      "Files": [
+        "infra/main.json:43"
+      ],
+      "Explanation": "The sqlAdminPassword variable creates the SQL administrator credential as a fixed 'P@ssw0rd' prefix plus ARM uniqueString(resourceGroup().id, environmentName). uniqueString is deterministic from deployment identifiers rather than secret randomness, making the credential reproducible/predictable; the value is passed to the SQL server deployment (infra/main.json:6332)."
+    },
+    {
+      "Id": "CWE-434",
+      "Name": "Unrestricted Upload of File with Dangerous Type",
+      "Category": "File & Path Security",
+      "Severity": "mandatory",
+      "StoryPoint": 8,
+      "Description": "The product allows the upload or transfer of dangerous file types that are automatically processed within its environment.",
+      "Files": [
+        "PhotoAlbum/Services/PhotoService.cs:82",
+        "PhotoAlbum/Services/PhotoService.cs:110-144"
+      ],
+      "Explanation": "UploadPhotoAsync trusts the client-supplied ContentType when checking allowed types (line 82) and derives the stored extension from the client-supplied filename (line 110). If ImageSharp cannot decode the content, the exception is caught and processing continues (lines 125-138), after which the unverified bytes are written to the upload directory (lines 140-144). The server therefore persists content that was not confirmed to be a supported image type."
+    }
+  ]
+}
