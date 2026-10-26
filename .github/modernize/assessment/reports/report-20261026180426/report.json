@@ -1191,7 +1191,7 @@
     },
     "Connection.0001": {
       "id": "Connection.0001",
-      "description": "Connection string detected. It may not be available when your app is migrated to Azure.\n\nReview and ensure it works from Azure. If you are connecting to a database, you might need to migrate the database to Azure. There are multiple ways to do it:\n    1. Migrate to Azure SQL Database for additional benefits (see the link below).\n    2. Consider Azure SQL Managed Instance if you need features that are not available in Azure SQL Database and you don\u2019t want to use a VM.\n    3. Migrate your database servers directly to SQL Server on Azure VMs.\n\nTo assess database migration effort, you can use Azure Migrate tool, see the link below.",
+      "description": "Connection string detected. It may not be available when your app is migrated to Azure.\n\nReview and ensure it works from Azure. If you are connecting to a database, you might need to migrate the database to Azure. There are multiple ways to do it:\n    1. Migrate to Azure SQL Database for additional benefits (see the link below).\n    2. Consider Azure SQL Managed Instance if you need features that are not available in Azure SQL Database and you don’t want to use a VM.\n    3. Migrate your database servers directly to SQL Server on Azure VMs.\n\nTo assess database migration effort, you can use Azure Migrate tool, see the link below.",
       "title": "Connection string is detected",
       "severity": "potential",
       "effort": 3,
@@ -1247,7 +1247,7 @@
     },
     "Database.0002": {
       "id": "Database.0002",
-      "description": "SQL database connection detected.\n\nEnsure the database is available/reachable on Azure.\n\nIf it is not, there are multiple ways you can move your data to Azure:\n    1. Migrate to Azure SQL Database.\n    2. Consider Azure SQL Managed Instance if you need features that are not available in Azure SQL Database and you don\u2019t want to use a VM.\n    3. Migrate your database servers directly to SQL Server on Azure VMs.\n\nTo assess database migration effort, you can use Azure Migrate tool, see the link below.",
+      "description": "SQL database connection detected.\n\nEnsure the database is available/reachable on Azure.\n\nIf it is not, there are multiple ways you can move your data to Azure:\n    1. Migrate to Azure SQL Database.\n    2. Consider Azure SQL Managed Instance if you need features that are not available in Azure SQL Database and you don’t want to use a VM.\n    3. Migrate your database servers directly to SQL Server on Azure VMs.\n\nTo assess database migration effort, you can use Azure Migrate tool, see the link below.",
       "title": "SQL database connection detected",
       "severity": "potential",
       "effort": 3,
@@ -1269,7 +1269,7 @@
     },
     "Identity.0002": {
       "id": "Identity.0002",
-      "description": "Your app is using windows authentication which is not supported on Azure App Service, Azure Container Apps and Azure Kubernetes Service.\n\nAzure App Service provides built-in authentication and authorization capabilities, so you can sign in users and access data by writing minimal or no code in your web app.\n\nFollow the link below for more information.\u0022",
+      "description": "Your app is using windows authentication which is not supported on Azure App Service, Azure Container Apps and Azure Kubernetes Service.\n\nAzure App Service provides built-in authentication and authorization capabilities, so you can sign in users and access data by writing minimal or no code in your web app.\n\nFollow the link below for more information.\"",
       "title": "Windows authentication detected",
       "severity": "mandatory",
       "effort": 3,
@@ -1302,5 +1302,105 @@
       ],
       "labels": []
     }
-  }
+  },
+  "security": [
+    {
+      "id": "CVE-2026-106115",
+      "title": "ImageSharp: TIFF CCITT T6 encoder writes beyond an undersized output buffer",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-106115](https://github.com/advisories/GHSA-jjfr-hcj7-qf5w): ImageSharp: TIFF CCITT T6 encoder writes beyond an undersized output buffer\n\nSeverity: HIGH\n\nAffected dependencies:\n  - SixLabors.ImageSharp:3.1.11 (declared at PhotoAlbum/PhotoAlbum.csproj:16); vulnerable range >= 2.1.0, < 3.2.0; first patched 3.2.0\n  - SixLabors.ImageSharp:3.1.11 (declared at PhotoAlbum/PhotoAlbum.csproj:16); vulnerable range >= 4.0.0, < 4.1.2; first patched 4.1.2\n\nRecommended fix: upgrade to the listed first patched version when available.",
+      "evidence": {
+        "files": [
+          "PhotoAlbum/PhotoAlbum.csproj:16"
+        ],
+        "explanation": "[CVE-2026-106115](https://github.com/advisories/GHSA-jjfr-hcj7-qf5w): ImageSharp: TIFF CCITT T6 encoder writes beyond an undersized output buffer\n\nSeverity: HIGH\n\nAffected dependencies:\n  - SixLabors.ImageSharp:3.1.11 (declared at PhotoAlbum/PhotoAlbum.csproj:16); vulnerable range >= 2.1.0, < 3.2.0; first patched 3.2.0\n  - SixLabors.ImageSharp:3.1.11 (declared at PhotoAlbum/PhotoAlbum.csproj:16); vulnerable range >= 4.0.0, < 4.1.2; first patched 4.1.2\n\nRecommended fix: upgrade to the listed first patched version when available."
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-106116",
+      "title": "ImageSharp: BigTIFF IFD count can keep a decoder thread in a non-progressing loop",
+      "category": "CVE",
+      "severity": "optional",
+      "description": "[CVE-2026-106116](https://github.com/advisories/GHSA-wmxv-xphr-5c9g): ImageSharp: BigTIFF IFD count can keep a decoder thread in a non-progressing loop\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - SixLabors.ImageSharp:3.1.11 (declared at PhotoAlbum/PhotoAlbum.csproj:16); vulnerable range >= 2.0.0, < 3.2.0; first patched 3.2.0\n  - SixLabors.ImageSharp:3.1.11 (declared at PhotoAlbum/PhotoAlbum.csproj:16); vulnerable range >= 4.0.0, < 4.1.2; first patched 4.1.2\n\nRecommended fix: upgrade to the listed first patched version when available.",
+      "evidence": {
+        "files": [
+          "PhotoAlbum/PhotoAlbum.csproj:16"
+        ],
+        "explanation": "[CVE-2026-106116](https://github.com/advisories/GHSA-wmxv-xphr-5c9g): ImageSharp: BigTIFF IFD count can keep a decoder thread in a non-progressing loop\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - SixLabors.ImageSharp:3.1.11 (declared at PhotoAlbum/PhotoAlbum.csproj:16); vulnerable range >= 2.0.0, < 3.2.0; first patched 3.2.0\n  - SixLabors.ImageSharp:3.1.11 (declared at PhotoAlbum/PhotoAlbum.csproj:16); vulnerable range >= 4.0.0, < 4.1.2; first patched 4.1.2\n\nRecommended fix: upgrade to the listed first patched version when available."
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-106110",
+      "title": "ImageSharp: TIFF CCITT T4 encoder can write past its compressed output buffer",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-106110](https://github.com/advisories/GHSA-j9gm-c75j-xc9q): ImageSharp: TIFF CCITT T4 encoder can write past its compressed output buffer\n\nSeverity: HIGH\n\nAffected dependencies:\n  - SixLabors.ImageSharp:3.1.11 (declared at PhotoAlbum/PhotoAlbum.csproj:16); vulnerable range >= 2.0.0, < 3.2.0; first patched 3.2.0\n  - SixLabors.ImageSharp:3.1.11 (declared at PhotoAlbum/PhotoAlbum.csproj:16); vulnerable range >= 4.0.0, < 4.1.2; first patched 4.1.2\n\nRecommended fix: upgrade to the listed first patched version when available.",
+      "evidence": {
+        "files": [
+          "PhotoAlbum/PhotoAlbum.csproj:16"
+        ],
+        "explanation": "[CVE-2026-106110](https://github.com/advisories/GHSA-j9gm-c75j-xc9q): ImageSharp: TIFF CCITT T4 encoder can write past its compressed output buffer\n\nSeverity: HIGH\n\nAffected dependencies:\n  - SixLabors.ImageSharp:3.1.11 (declared at PhotoAlbum/PhotoAlbum.csproj:16); vulnerable range >= 2.0.0, < 3.2.0; first patched 3.2.0\n  - SixLabors.ImageSharp:3.1.11 (declared at PhotoAlbum/PhotoAlbum.csproj:16); vulnerable range >= 4.0.0, < 4.1.2; first patched 4.1.2\n\nRecommended fix: upgrade to the listed first patched version when available."
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-106113",
+      "title": "ImageSharp: HistogramEqualization uses an unvalidated luminance as an unchecked histogram index",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-106113](https://github.com/advisories/GHSA-j3p4-wp97-rph4): ImageSharp: HistogramEqualization uses an unvalidated luminance as an unchecked histogram index\n\nSeverity: HIGH\n\nAffected dependencies:\n  - SixLabors.ImageSharp:3.1.11 (declared at PhotoAlbum/PhotoAlbum.csproj:16); vulnerable range >= 2.0.0, < 3.2.0; first patched 3.2.0\n  - SixLabors.ImageSharp:3.1.11 (declared at PhotoAlbum/PhotoAlbum.csproj:16); vulnerable range >= 4.0.0, < 4.1.2; first patched 4.1.2\n\nRecommended fix: upgrade to the listed first patched version when available.",
+      "evidence": {
+        "files": [
+          "PhotoAlbum/PhotoAlbum.csproj:16"
+        ],
+        "explanation": "[CVE-2026-106113](https://github.com/advisories/GHSA-j3p4-wp97-rph4): ImageSharp: HistogramEqualization uses an unvalidated luminance as an unchecked histogram index\n\nSeverity: HIGH\n\nAffected dependencies:\n  - SixLabors.ImageSharp:3.1.11 (declared at PhotoAlbum/PhotoAlbum.csproj:16); vulnerable range >= 2.0.0, < 3.2.0; first patched 3.2.0\n  - SixLabors.ImageSharp:3.1.11 (declared at PhotoAlbum/PhotoAlbum.csproj:16); vulnerable range >= 4.0.0, < 4.1.2; first patched 4.1.2\n\nRecommended fix: upgrade to the listed first patched version when available."
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-106114",
+      "title": "ImageSharp: ICC CLUT parsing allocates from unvalidated channel and grid dimensions",
+      "category": "CVE",
+      "severity": "optional",
+      "description": "[CVE-2026-106114](https://github.com/advisories/GHSA-gwg2-r3hj-4w44): ImageSharp: ICC CLUT parsing allocates from unvalidated channel and grid dimensions\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - SixLabors.ImageSharp:3.1.11 (declared at PhotoAlbum/PhotoAlbum.csproj:16); vulnerable range >= 4.0.0, < 4.1.2; first patched 4.1.2\n  - SixLabors.ImageSharp:3.1.11 (declared at PhotoAlbum/PhotoAlbum.csproj:16); vulnerable range >= 1.0.0-beta0001, < 3.2.0; first patched 3.2.0\n\nRecommended fix: upgrade to the listed first patched version when available.",
+      "evidence": {
+        "files": [
+          "PhotoAlbum/PhotoAlbum.csproj:16"
+        ],
+        "explanation": "[CVE-2026-106114](https://github.com/advisories/GHSA-gwg2-r3hj-4w44): ImageSharp: ICC CLUT parsing allocates from unvalidated channel and grid dimensions\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - SixLabors.ImageSharp:3.1.11 (declared at PhotoAlbum/PhotoAlbum.csproj:16); vulnerable range >= 4.0.0, < 4.1.2; first patched 4.1.2\n  - SixLabors.ImageSharp:3.1.11 (declared at PhotoAlbum/PhotoAlbum.csproj:16); vulnerable range >= 1.0.0-beta0001, < 3.2.0; first patched 3.2.0\n\nRecommended fix: upgrade to the listed first patched version when available."
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-106118",
+      "title": "ImageSharp: Tiled fax TIFF: tile buffer sized by TileWidth but fax decompressor writes scanlines of ImageWidth — heap OOB write",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-106118](https://github.com/advisories/GHSA-v76p-62qx-wwq2): ImageSharp: Tiled fax TIFF: tile buffer sized by TileWidth but fax decompressor writes scanlines of ImageWidth — heap OOB write\n\nSeverity: HIGH\n\nAffected dependencies:\n  - SixLabors.ImageSharp:3.1.11 (declared at PhotoAlbum/PhotoAlbum.csproj:16); vulnerable range >= 3.0.0, < 3.2.0; first patched 3.2.0\n  - SixLabors.ImageSharp:3.1.11 (declared at PhotoAlbum/PhotoAlbum.csproj:16); vulnerable range >= 4.0.0, < 4.1.1; first patched 4.1.1\n\nRecommended fix: upgrade to the listed first patched version when available.",
+      "evidence": {
+        "files": [
+          "PhotoAlbum/PhotoAlbum.csproj:16"
+        ],
+        "explanation": "[CVE-2026-106118](https://github.com/advisories/GHSA-v76p-62qx-wwq2): ImageSharp: Tiled fax TIFF: tile buffer sized by TileWidth but fax decompressor writes scanlines of ImageWidth — heap OOB write\n\nSeverity: HIGH\n\nAffected dependencies:\n  - SixLabors.ImageSharp:3.1.11 (declared at PhotoAlbum/PhotoAlbum.csproj:16); vulnerable range >= 3.0.0, < 3.2.0; first patched 3.2.0\n  - SixLabors.ImageSharp:3.1.11 (declared at PhotoAlbum/PhotoAlbum.csproj:16); vulnerable range >= 4.0.0, < 4.1.1; first patched 4.1.1\n\nRecommended fix: upgrade to the listed first patched version when available."
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CWE-434",
+      "title": "Unrestricted Upload of File with Dangerous Type",
+      "category": "File & Path Security",
+      "severity": "mandatory",
+      "description": "The product allows the upload or transfer of dangerous file types that are automatically processed within its environment.",
+      "evidence": {
+        "files": [
+          "PhotoAlbum/Services/PhotoService.cs"
+        ],
+        "explanation": "`PhotoService.UploadPhotoAsync` trusts the client-provided `ContentType` for the allowlist check (PhotoAlbum/Services/PhotoService.cs:81-88). If ImageSharp cannot decode the content, the exception is logged but execution continues (lines 125-138), after which the bytes are saved to disk (lines 140-145). Thus a file with a permitted declared MIME type but arbitrary/dangerous content can be stored and later served."
+      },
+      "storyPoint": 8
+    }
+  ]
 }
