@@ -1,6 +1,6 @@
 # API & Service Communication Contracts
 
-PhotoAlbum exposes four page-handler HTTP operations for browsing, uploading, viewing, and deleting photos. All application communication is synchronous over HTTP or direct asynchronous service calls; no inter-service API or message broker is configured.
+PhotoAlbum exposes five page-handler HTTP operations for browsing, uploading, viewing, and deleting photos. All application communication is synchronous over HTTP or direct asynchronous service calls; no inter-service API or message broker is configured.
 
 ## Service Catalog
 
